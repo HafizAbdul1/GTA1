@@ -8,8 +8,21 @@ Route::get('/', function () {
 });
 
 Route::get('/apprentice', function () {
-    return view('apprentice');
+    return view('apprenticesection.apprentice');
 });
+
+Route::get('/loginpage', function () {
+    return view('loginpage');
+});
+
+Route::get('/home', function () {
+    return view('home');
+});
+
+Route::get('/register', function () {
+    return view('register');
+});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

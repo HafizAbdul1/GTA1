@@ -1,0 +1,160 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Body */
+body {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f4f4f4;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Navigation */
+.nav {
+    background-color: #2c3e50;
+    padding: 10px 0;
+}
+
+.nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+.nav ul li {
+    padding: 0 15px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav .Home {
+    font-weight: bold;
+}
+
+/* Body Section */
+.body {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.Logo {
+    width: 150px;
+    margin-bottom: 20px;
+}
+.LogInContainer{
+    display: center;
+}
+
+.LoginForms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.LoginForms label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.EmailPassword {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.Login {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 80%;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.Login:hover {
+    background-color: #2980b9;
+}
+
+/* Extra Logos */
+.ExtraLogos {
+    margin-top: 30px;
+    width: 200px;
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+footer .FirstFooter {
+    font-weight: bold;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .body {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .LoginForms input,
+    .LoginForms button {
+        width: 90%;
+    }
+
+    .nav ul {
+        flex-direction: column;
+    }
+
+    .nav ul li {
+        padding: 10px 0;
+    }
+
+    .ExtraLogos {
+        width: 150px;
+    }
+}

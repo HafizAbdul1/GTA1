@@ -6,7 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Apprentice</h1>
-    <a>This is the apprentice dashboard.</a>
+    
 </body>
 </html>

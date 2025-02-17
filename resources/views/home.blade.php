@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @vite(['resources/css/app.css'])
+
     <img src="images/LogoGta.png" alt="GTA logo" class="Logo">
     <title>GTA Apprenticeship Progress Tracker</title>
     <style>
