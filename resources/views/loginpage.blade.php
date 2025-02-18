@@ -6,7 +6,6 @@
     <title>Login</title>
     <link rel="stylesheet" href="stylesheets/desktop.css"> 
     @vite(['resources/css/desktop.css'])
-    <!-- Make sure the CSS path is correct -->
 </head>
 
 <body>
