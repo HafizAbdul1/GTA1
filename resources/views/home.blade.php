@@ -18,26 +18,16 @@
             <h1>GTA Apprenticeship Progress Tracker</h1>
         </div>
     </header>
+    
+    <div class="container">
+        <img src="{{ asset('images/LogoGta.png') }}" alt="GTA logo" class="Logo">
+        <p>This is a robust application created in order to store and track apprenticeship progression.</p>
+        
+        <button onclick="location.href='{{ route('apprenticesection.apprentice') }}'">Log In</button>
 
-    <!-- Main Content Section -->
-    <main>
-        <div class="container">
-            <div class="intro">
-                <img src="{{ asset('images/LogoGta.png') }}" alt="GTA logo" class="Logo">
-                <p>This is a robust application created in order to store and track apprenticeship progression. It helps
-                    both apprentices and employers monitor the learning journey and development.</p>
-                <!-- Button to log in -->
-                <button class="login-btn" onclick="location.href='{{ route('apprenticesection.apprentice') }}'">Log In</button>
-            </div>
-            <!-- Extra Logos -->
-            <div class="extra-logos">
-                <img src="{{ asset('images/LogosExtra.png') }}" alt="Extra logos of GTA" class="ExtraLogos">
-            </div>
-        </div>
-    </main>
-
-
-    <br>
+        <img src="{{ asset('images/LogosExtra.png') }}" alt="Extra logos of GTA" class="ExtraLogos">
+    </div>
+    
     <footer>
         <div class="footer-container">
             <p>Contact Us: admin@doncastergta.co.uk</p>
