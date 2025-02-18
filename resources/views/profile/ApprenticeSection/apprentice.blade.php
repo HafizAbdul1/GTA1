@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apprentice Portal</title>
-    @vite(['resources/css/app.css'])
-    <link rel="stylesheet" href="stylesheets/app.css">
-</head>
+    <title>Apprentice Dashboard</title>
 
+    <!-- Link to external CSS file -->
+    @vite(['resources/css/app.css']) <!-- Laravel Vite integration -->
+
+</head>
 <body>
+
+    <!-- Sidebar Section -->
     <div class="sidebar">
         <h2>Apprentice Portal</h2>
         <ul>
@@ -21,12 +24,15 @@
         </ul>
     </div>
 
+    <!-- Main Content Section -->
     <div class="content">
         <header>
             <h1>Welcome, Apprentice</h1>
-            <button onclick="location.href='{{ route('home') }}'">Logout</button>
+            <!-- Logout Button with logout-btn class -->
+            <button class="logout-btn" onclick="location.href='{{ route('home') }}'">Logout</button>
         </header>
 
+        <!-- Stats Section -->
         <section class="stats">
             <div class="card">
                 <h3>KSB Progress</h3>
@@ -42,11 +48,13 @@
             </div>
         </section>
 
+        <!-- Document Upload Section -->
         <section class="upload">
             <h2>Upload Documents</h2>
             <input type="file">
             <button>Upload</button>
         </section>
     </div>
+
 </body>
 </html>
