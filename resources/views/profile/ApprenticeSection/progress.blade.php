@@ -15,12 +15,12 @@
     <div class="sidebar">
         <h2>Apprentice Portal</h2>
         <ul>
-            <li><a href="attendance.blade.php">Dashboard</a></li>
-            <li><a href="progess.blade.php">Progress</a></li>
-            <li><a href="meetings.blade.php">Meetings</a></li>
-            <li><a href="attendance.blade.php">Attendance</a></li>
-            <li><a href="documents.blade.php">Documents</a></li>
-            <li><a href="settings.blade.php">Settings</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Progress</a></li>
+            <li><a href="#">Meetings</a></li>
+            <li><a href="#">Attendance</a></li>
+            <li><a href="#">Documents</a></li>
+            <li><a href="#">Settings</a></li>
         </ul>
     </div>
 
@@ -58,3 +58,4 @@
 
 </body>
 </html>
+
