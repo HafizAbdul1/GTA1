@@ -11,7 +11,7 @@
     <header>
         <h1>GTA Apprenticeship Progress Tracker</h1>
     </header>
-    <!-- testing -->
+   
     <div class="container">
         <img src="{{ asset('images/LogoGta.png') }}" alt="GTA logo" class="Logo">
         <p>This is a robust application created in order to store and track apprenticeship progression.</p>
