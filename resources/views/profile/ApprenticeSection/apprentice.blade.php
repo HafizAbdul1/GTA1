@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Apprentice Portal</title>
     @vite(['resources/css/app.css'])
     <link rel="stylesheet" href="stylesheets/app.css">
 </head>
 
 <body>
-
-
     <div class="sidebar">
         <h2>Apprentice Portal</h2>
         <ul>
@@ -26,7 +24,7 @@
     <div class="content">
         <header>
             <h1>Welcome, Apprentice</h1>
-            <button class="logout-btn">Logout</button>
+            <button onclick="location.href='{{ route('home') }}'">Logout</button>
         </header>
 
         <section class="stats">
@@ -50,6 +48,5 @@
             <button>Upload</button>
         </section>
     </div>
-
 </body>
 </html>

@@ -60,7 +60,6 @@ header {
     cursor: pointer;
 }
 
-/* Stats Section */
 .stats {
     display: flex;
     gap: 20px;
