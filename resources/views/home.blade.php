@@ -8,7 +8,7 @@
     
     @vite(['resources/css/app.css'])
 </head>
-<body>e
+<body>
     <header>
         <h1>GTA Apprenticeship Progress Tracker</h1>
     </header>
