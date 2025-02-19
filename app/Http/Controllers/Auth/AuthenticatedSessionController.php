@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -7,13 +6,6 @@ use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-
-namespace App\Http\Controllers\Auth;
-
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Auth;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -24,13 +16,13 @@ class AuthenticatedSessionController extends Controller
 
     public function store(LoginRequest $request): RedirectResponse
     {
-        // Attempt authentication using 'id' instead of 'email'
+        // Attempt authentication using 'id' and 'password'
         if (Auth::attempt(['id' => $request->id, 'password' => $request->password])) {
             $request->session()->regenerate();
 
             $user = Auth::user();
 
-            // Redirect based on role
+            // Redirect based on user role
             if ($user->role === 'apprentice') {
                 return redirect()->route('apprentice.dashboard');
             } elseif ($user->role === 'employer') {
@@ -39,7 +31,7 @@ class AuthenticatedSessionController extends Controller
                 return redirect()->route('tutor.dashboard');
             }
 
-            return redirect()->intended('/');
+            return redirect()->intended('/'); // Redirect to home if no specific role
         }
 
         return back()->withErrors([
@@ -47,13 +39,13 @@ class AuthenticatedSessionController extends Controller
         ]);
     }
 
-    // Optionally, implement a destroy method for logout functionality
+    // Logout functionality
     public function destroy(Request $request): RedirectResponse
     {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/'); // Redirect to home after logout
     }
 }
