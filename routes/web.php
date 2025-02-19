@@ -62,6 +62,10 @@ Route::get('/register', function () {
     return view('register');
 });
 
+Route::get('/admin', function () {
+    return view('admin');
+});
+
 Route::get('/', function () {
     return view('home');
 })->name('home');
