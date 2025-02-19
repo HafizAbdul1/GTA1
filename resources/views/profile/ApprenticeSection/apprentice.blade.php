@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +11,7 @@
 
 </head>
 <body>
+    
 
     <!-- Sidebar Section -->
     <div class="sidebar">
@@ -27,7 +29,7 @@
     <!-- Main Content Section -->
     <div class="content">
         <header>
-            <h1>Welcome, Apprentice</h1>
+            <h1>Welcome, $first_name</h1>
             <!-- Logout Button with logout-btn class -->
             <button class="logout-btn" onclick="location.href='{{ route('home') }}'">Logout</button>
         </header>
@@ -58,3 +60,4 @@
 
 </body>
 </html>
+<?php
