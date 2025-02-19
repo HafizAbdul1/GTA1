@@ -8,22 +8,6 @@
     @vite(['resources/css/admin.css']) <!-- Link admin CSS -->
 </head>
 <body>
-<<<<<<< HEAD:resources/views/admin.blade.php
-=======
-    <div class="sidebar">
-        <h2>GTA Admin</h2>
-        <ul>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Users</a></li>
-            <li><a href="#">Apprenticeships</a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a onclick="location.href='{{ route('home') }}'">Logout</a></li>
-         
-            
-        </ul>
-    </div>
->>>>>>> 1193a5035cfbef7d3ffbc752c9ce5888397a4e42:resources/views/profile/AdminSection/admin.blade.php
 
 <nav id="sidebar">
     <ul>
