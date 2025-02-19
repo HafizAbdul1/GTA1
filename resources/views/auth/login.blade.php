@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    
-    <!-- External Stylesheets -->
-    <link rel="stylesheet" href="{{ asset('stylesheets/desktop.css') }}">
-    @vite('resources/css/desktop.css') <!-- Make sure Vite is properly set up -->
+    @vite('resources/css/desktop.css')
 </head>
 
 <body>
