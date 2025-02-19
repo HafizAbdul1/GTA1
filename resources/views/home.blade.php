@@ -27,7 +27,7 @@
                 <p>This is a robust application created in order to store and track apprenticeship progression. It helps
                     both apprentices and employers monitor the learning journey and development.</p>
                 <!-- Button to log in -->
-                <button class="login-btn" onclick="location.href='{{ route('apprenticesection.apprentice') }}'">Log In</button>
+                <button class="login-btn" onclick="location.href='{{ route('login') }}'">Log In</button>
             </div>
             <!-- Extra Logos -->
             <div class="extra-logos">
