@@ -1,47 +1,63 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="{{ asset('stylesheets/desktop.css') }}">
+    @vite('resources/css/desktop.css') <!-- Make sure Vite is properly set up -->
+</head>
 
-    <form method="POST" action="{{ route('login') }}">
+<body>
+
+    <div class="nav">
+        <ul>
+            <li class="Home"><img src="{{ asset('images/LogoGta.png') }}" alt="Logo"></li>
+            <li>Login</li>
+            <li>Example</li>
+            <li>Example</li>
+        </ul>
+    </div>
+
+    <div class="login-container">
+    <form class="login-form" method="POST" action="{{ route('login.store') }}">
         @csrf
-
-        <!-- Email Address -->
         <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <label for="id">Enter ID:</label><br>
+            <input type="text" id="id" name="id" class="id-password" required><br>
+        </div>
+        
+        <div>
+            <label for="password">Enter Password:</label><br>
+            <input type="password" id="password" name="password" class="id-password" required><br>
         </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+        @if($errors->any())
+            <div class="error-messages">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
+        <button type="submit" class="login-button">Login</button>
     </form>
-</x-guest-layout>
+
+    </div>
+
+    <footer>
+        <ul>
+            <li class="footer-email">admin@doncastergta.co.uk</li>
+            <li><a href="PrivacyPolicy.html">Privacy Policy</a></li>
+            <li><a href="TermsCond.html">Terms & Conditions</a></li>
+            <li>+44(0)1302 832831</li>
+            <li>©2025 by GTA Group Training Association.</li>
+        </ul>
+    </footer>
+
+</body>
+</html>
