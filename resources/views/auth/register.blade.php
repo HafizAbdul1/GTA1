@@ -1,52 +1,52 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="stylesheets/desktop.css">
+    @vite(['resources/css/desktop.css'])
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+</head>
+<body>
+        <div class="nav">
+        <ul>
+            <li class="Home">GTA</li>
+            <li>Login</li>
+            <li>example</li>
+            <li>example</li>
+        </ul>
         </div>
+    <div class="body">
+        <img src="images/LogoGta.png" alt="GTA logo" class="Logo">
+        
+        <p style="color: red;">PLEASE MAKE SURE PASSWORDS AND EMAILS MATCH</p>
+        <form class="LoginForms">
+            <label for="Email">Enter Email:</label><br>
+            <input type="text" id="Email" name="Email" class="EmailPassword"><br>
+            <label for="Re-EnterEmail">Re-Enter Email:</label><br>
+            <input type="text" id="Re-EnterEmail" name="Re-EnterEmail" class="EmailPassword"><br>
+            <label for="Password">Enter Password:</label><br>
+            <input type="text" id="Password" name="Password" class="EmailPassword"><br>
+            <label for="Re-EnterPassword">Re-Enter Password:</label><br>
+            <input type="text" id="Re-EnterPassword" name="Re-EnterPassword" class="EmailPassword"><br>      
+            
+            <button class="Register">Register</button>
+        </form>
+        
+    
+    <img src="images/LogosExtra.png" alt="Extra logos of GTA" class="ExtraLogos">
+    </div>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    <footer>
+        <ul>
+            <li class="FirstFooter">admin@doncastergta.co.uk</li>
+            <li><a href="PrivacyPolicy.html">Privacy Policy</a></li>
+            <li><a href="TermsCond.html">Terms & Conditions</a></li>
+            <li>+44(0)1302 832831</li>
+            <li>©2025 by GTA group training association.</li>
+        </ul>
+        
+    </footer>
+</body>
+</html>
