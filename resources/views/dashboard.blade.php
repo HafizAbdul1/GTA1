@@ -4,11 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @vite(['resources\css\app.css'])
     <title>Apprentice Dashboard</title>
-
-    <!-- Link to external CSS file -->
-    @vite(['resources\css\app.css']) <!-- Laravel Vite integration -->
-
 </head>
 <body>
     

@@ -27,7 +27,6 @@ Route::middleware('guest')->group(function () {
     Route::post('reset-password', [NewPasswordController::class, 'store'])->name('password.store');
 });
 
-// Authenticated Routes - User is logged in
 Route::middleware('auth')->group(function () {
     Route::get('verify-email/{id}/{hash}', [VerifyEmailController::class, 'verify'])
         ->middleware(['signed', 'throttle:6,1'])
@@ -42,9 +41,8 @@ Route::middleware('auth')->group(function () {
     
     Route::put('password', [PasswordController::class, 'update'])->name('password.update');
     
-    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+   Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
     
-    // Dashboard route, will be redirected here after login
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
@@ -56,6 +54,10 @@ Route::middleware('auth')->group(function () {
 Route::get('/', function () {
     return view('home');
 })->name('home');
+
+Route::get('/adminsection/admin', function () {
+    return view('profile.adminsection.admin'); 
+})->name('adminsection.admin');
 
 // Apprentices Section Routes (visible after login)
 Route::get('/apprenticesection/apprentice', function () {

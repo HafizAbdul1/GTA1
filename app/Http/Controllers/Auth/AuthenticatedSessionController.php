@@ -18,22 +18,17 @@ class AuthenticatedSessionController extends Controller
     {
         // Attempt authentication using 'id' and 'password'
         if (Auth::attempt(['id' => $request->id, 'password' => $request->password])) {
+            // Immediately logout the user after they login to make them re-login on the next request
+            Auth::logout();
+
+            // Regenerate the session after logout to prevent session fixation
             $request->session()->regenerate();
 
-            $user = Auth::user();
-
-            // Redirect based on user role
-            if ($user->role === 'apprentice') {
-                return redirect()->route('apprentice.dashboard');
-            } elseif ($user->role === 'employer') {
-                return redirect()->route('employer.dashboard');
-            } elseif ($user->role === 'tutor') {
-                return redirect()->route('tutor.dashboard');
-            }
-
-            return redirect()->intended('/'); // Redirect to home if no specific role
+            // Return to the login page again after successful login attempt
+            return redirect()->route('login')->with('message', 'Please log in again.');
         }
 
+        // Return back with an error message if authentication failed
         return back()->withErrors([
             'id' => 'The provided credentials are incorrect.',
         ]);
@@ -43,9 +38,12 @@ class AuthenticatedSessionController extends Controller
     public function destroy(Request $request): RedirectResponse
     {
         Auth::logout();
+
+        // Fully clear session
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/'); // Redirect to home after logout
+        return redirect('/login'); // Always go to login page after logout
     }
 }
+

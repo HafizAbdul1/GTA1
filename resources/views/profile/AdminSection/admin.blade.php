@@ -15,7 +15,9 @@
             <li><a href="#">Apprenticeships</a></li>
             <li><a href="#">Reports</a></li>
             <li><a href="#">Settings</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a onclick="location.href='{{ route('home') }}'">Logout</a></li>
+         
+            
         </ul>
     </div>
 
