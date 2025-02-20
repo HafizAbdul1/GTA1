@@ -7,21 +7,6 @@
     @vite(['resources/css/admin.css']) <!-- Vite CSS link -->
 </head>
 <body>
-<<<<<<< HEAD
-    <div class="sidebar">
-        <h2>GTA Admin</h2>
-        <ul>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Users</a></li>
-            <li><a href="#">Apprenticeships</a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a onclick="location.href='{{ route('home') }}'">Logout</a></li>
-         
-            
-        </ul>
-    </div>
-=======
 
 <nav id="sidebar">
     <ul>
@@ -96,7 +81,6 @@
     </ul>
     <img src="../../public/images/LogoGta.png" alt="coding2go logo" class="logo">
   </nav>
->>>>>>> 358dd09cee4b6c2a4f33490e05217e4d00731b58
 
     <div class="main-content">
         <header>
