@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset('stylesheets/desktop.css') }}">
     @vite('resources/css/desktop.css')
     @vite(['resources/css/app.css'])
-    @vite(['resources/js/sidemenu.js'])
+    @vite(['resources/js/sidemenu.js']) <!-- Vite JS link for Sidemenu -->
       <!-- Laravel Vite integration -->
 
 </head>
