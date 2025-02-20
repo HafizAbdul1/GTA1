@@ -62,9 +62,9 @@ Route::get('/adminsection/admin', function () {
     return view('profile.adminsection.admin'); 
 })->name('adminsection.admin');
 
-Route::get('/StakeholderSection/stakeholder', function () {
-    return view('profile.StakeholderSection.stakeholder'); 
-})->name('StakeholderSection.stakeholder');
+Route::get('/Employers/Employers', function () {
+    return view('profile.Employers.Employers'); 
+})->name('Employers.Employers');
 
 
 // Apprentices Section Routes (visible after login)

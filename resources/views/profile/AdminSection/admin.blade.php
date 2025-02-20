@@ -4,10 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
+<<<<<<< HEAD
+    @vite(['resources/css/admin.css'])
+    @vite(['resources/js/admin.js']) <!-- Vite CSS link -->
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>GTA Admin</h2>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Users</a></li>
+            <li><a href="#">Apprenticeships</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a onclick="location.href='{{ route('home') }}'">Logout</a></li>
+         
+            
+        </ul>
+    </div>
+
+=======
     @vite(['resources/css/admin.css']) <!-- Vite CSS link -->
     @vite(['resources/js/sidemenu.js']) <!-- Vite JS link for Sidemenu -->
 </head>
 <body>
+>>>>>>> c1cd4e9cf16c4cd76511277bad2f7ac8c6a102cc
 
 <nav id="sidebar">
     <ul>
