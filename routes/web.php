@@ -50,6 +50,7 @@ Route::middleware('auth')->group(function () {
     })->name('dashboard');
 });
 
+
 // Other routes
 
 // Default home route (accessible by anyone)
@@ -60,6 +61,11 @@ Route::get('/', function () {
 Route::get('/adminsection/admin', function () {
     return view('profile.adminsection.admin'); 
 })->name('adminsection.admin');
+
+Route::get('/StakeholderSection/stakeholder', function () {
+    return view('profile.StakeholderSection.stakeholder'); 
+})->name('StakeholderSection.stakeholder');
+
 
 // Apprentices Section Routes (visible after login)
 Route::get('/apprenticesection/apprentice', function () {
