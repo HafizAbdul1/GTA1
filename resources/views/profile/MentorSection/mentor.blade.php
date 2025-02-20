@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentor Portal</title>
-    <link rel="stylesheet" href="../../../css/app.css">
+    <link rel="stylesheet" href="../../../css/mentor.css">
 </head>
 <body>
     <div class="sidebar">
@@ -25,7 +25,7 @@
         </div>
     </section>
 
-    <div class="content">
+    <div class="main-content">
         <header>
             <h1>Welcome, Mentor</h1>
             <button onclick="location.href='{{ route('home') }}'">Logout</button>
