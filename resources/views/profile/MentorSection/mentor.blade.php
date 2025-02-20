@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentor Portal</title>
-    <link rel="stylesheet" href="../../../css/app.css">
+    <link rel="stylesheet" href="../../../css/mentor.css">
 </head>
 <body>
     <div class="sidebar">
@@ -18,14 +18,7 @@
         </ul>
     </div>
 
-    <section class="stats">
-        <div class="card">
-            <h3>Meetings</h3>
-            <p>Next meeting: 19th September</p>
-        </div>
-    </section>
-
-    <div class="content">
+    <div class="main-content">
         <header>
             <h1>Welcome, Mentor</h1>
             <button onclick="location.href='{{ route('home') }}'">Logout</button>
@@ -37,6 +30,13 @@
             <button>Upload</button>
         </section>
     </div>
+
+    <section class="stats">
+        <div class="card">
+            <h3>Meetings</h3>
+            <p>Next meeting: 19th September</p>
+        </div>
+    </section>
 
 </body>
 </html>

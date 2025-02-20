@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentor Apprentices</title>
 
-    @vite(['resources/css/app.css'])
-    <link rel="stylesheet" href="../../../css/app.css">
+    <link rel="stylesheet" href="../../../css/mentor.css">
 </head>
 <body>
     <div class="sidebar">
@@ -19,6 +18,11 @@
             <li><a href="MentorSettings.blade.php">Settings</a></li>
         </ul>
     </div>
+
+    <div class="title">
+        <h1>Mentor Apprentice Manager</h1>
+    </div>
+
 
     <section class="table">
         <table>
