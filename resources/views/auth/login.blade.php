@@ -34,9 +34,13 @@
         </ul>
     @endif
 
+<<<<<<< HEAD
+    <form action="{{ route('login') }}" method="POST">
+=======
     <div class="container">
     <h1>Login</h1>
     <form action="{{ route('login.store') }}" method="POST">
+>>>>>>> 358dd09cee4b6c2a4f33490e05217e4d00731b58
         @csrf
         <label for="id">User ID</label>
         <input type="text" name="id" id="id" required>

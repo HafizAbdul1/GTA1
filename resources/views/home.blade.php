@@ -28,6 +28,36 @@
     </nav>
 </header>
 
+<<<<<<< HEAD
+    <!-- Main Content Section -->
+<!-- Main Content Section -->
+<!-- Main Content Section -->
+<main>
+    <div class="container">
+        <div class="intro">
+            <img src="{{ asset('images/LogoGta.png') }}" alt="GTA logo" class="Logo">
+            <p>This is a robust application created in order to store and track apprenticeship progression. It helps
+                both apprentices and employers monitor the learning journey and development.</p>
+            <!-- Button to log in -->
+            <button class="login-btn" onclick="location.href='{{ route('login') }}'">Login</button>
+        </div>
+        <!-- Extra Logos -->
+        <div class="extra-logos">
+            <img src="{{ asset('images/LogosExtra.png') }}" alt="Extra logos of GTA" class="ExtraLogos">
+        </div>
+    </div>
+</main>
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-container">
+        <p>Contact Us: admin@doncastergta.co.uk</p>
+        <p><a href="#">Privacy Policy</a> || <a href="#">Terms & Conditions</a></p>
+        <p>Phone: +44 (0)1302 832831</p>
+        <p>&copy; 2025 by GTA Group Training Association</p>
+    </div>
+</footer>
+=======
 
 
 <section class="hero">
@@ -60,6 +90,7 @@
     <footer>
         <p>© 2025 Group Training Association. All Rights Reserved.</p>
     </footer>
+>>>>>>> 358dd09cee4b6c2a4f33490e05217e4d00731b58
 
 </body>
 </html>
