@@ -18,13 +18,6 @@
         </ul>
     </div>
 
-    <section class="stats">
-        <div class="card">
-            <h3>Meetings</h3>
-            <p>Next meeting: 19th September</p>
-        </div>
-    </section>
-
     <div class="main-content">
         <header>
             <h1>Welcome, Mentor</h1>
@@ -37,6 +30,13 @@
             <button>Upload</button>
         </section>
     </div>
+
+    <section class="stats">
+        <div class="card">
+            <h3>Meetings</h3>
+            <p>Next meeting: 19th September</p>
+        </div>
+    </section>
 
 </body>
 </html>
