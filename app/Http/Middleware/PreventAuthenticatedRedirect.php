@@ -7,13 +7,17 @@ use Illuminate\Support\Facades\Auth;
 
 class PreventAuthenticatedRedirect
 {
-    public function handle(Request $request, Closure $next)
-    {
-        // If the user is authenticated and tries to access login page, prevent redirect
-        if (Auth::check() && $request->is('login')) {
-            return $next($request);  // Allow them to stay on the login page
-        }
+   // app/Http/Middleware/RedirectIfAuthenticated.php
 
-        return $next($request); // Otherwise, proceed with the request
-    }
+public function handle($request, Closure $next, ...$guards)
+{
+   foreach ($guards as $guard) {
+       if (Auth::guard($guard)->check()) {
+           return redirect('/login'); // Redirect authenticated users to home
+       }
+   }
+
+   return $next($request); // Allow guests to proceed
+}
+
 }

@@ -106,6 +106,14 @@ header {
     text-align: center;
 }
 
+table, th, td {    
+    border: 1px solid;
+}
+
+table {
+    border-collapse: collapse;
+}
+
 /* Upload Section */
 .upload {
     margin-top: 20px;

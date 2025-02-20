@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 
 // Guest Routes - Not authenticated yet
 Route::middleware('guest')->group(function () {
-    Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
-    Route::post('/login', [AuthenticatedSessionController::class, 'store'])->name('login.store');
+    Route::get('/login', [AuthenticatedSessionController::class, 'create'])
+        ->name('login');
+    Route::post('/login', [AuthenticatedSessionController::class, 'store']);
 
     Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
     Route::post('/register', [RegisteredUserController::class, 'store']);
@@ -27,6 +28,7 @@ Route::middleware('guest')->group(function () {
     Route::post('reset-password', [NewPasswordController::class, 'store'])->name('password.store');
 });
 
+// Authenticated Routes
 Route::middleware('auth')->group(function () {
     Route::get('verify-email/{id}/{hash}', [VerifyEmailController::class, 'verify'])
         ->middleware(['signed', 'throttle:6,1'])
@@ -41,7 +43,7 @@ Route::middleware('auth')->group(function () {
     
     Route::put('password', [PasswordController::class, 'update'])->name('password.update');
     
-   Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
     
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -65,9 +67,10 @@ Route::get('/apprenticesection/apprentice', function () {
     return view('profile.ApprenticeSection.apprentice'); 
 })->name('apprenticesection.apprentice');
 
-Route::get('apprentice/dashboard', function () {
-    return view('apprentice.dashboard');  
-})->name('apprentice.dashboard');
+Route::get('/apprenticesection/dashboard', function () {
+    return view('profile.ApprenticeSection.dashboard'); 
+})->name('apprenticesection.dashboard');
+
 
 // Profile-related Routes (auth middleware to access)
 Route::middleware(['auth', 'verified'])->group(function () {
