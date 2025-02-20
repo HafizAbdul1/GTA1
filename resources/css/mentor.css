@@ -80,18 +80,23 @@ header {
 }
 
 table, th, td { 
-    margin-top: 250px;
     margin-left: none;  
     border: 1px solid;
-    align-items: center;
-    
 }
 
 table {
     border-collapse: collapse;
     width: 100%;
+    background: white;
+    padding: 20px;
 }
 
+.tables {
+    margin-top: 250px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+}
 
 
 

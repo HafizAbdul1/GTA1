@@ -23,7 +23,7 @@
         <h1>Mentor Meeting Schedule</h1>
     </div>
 
-    <section class="table">
+    <section class="tables">
         <table>
             <tr>
                 <th>Meeting Date</th>

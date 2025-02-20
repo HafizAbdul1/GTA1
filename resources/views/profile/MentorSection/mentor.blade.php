@@ -32,7 +32,7 @@
     </div>
 
     <section class="stats">
-        <div class="card">
+        <div>
             <h3>Meetings</h3>
             <p>Next meeting: 19th September</p>
         </div>

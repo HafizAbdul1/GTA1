@@ -24,7 +24,7 @@
     </div>
 
 
-    <section class="table">
+    <section class="tables">
         <table>
             <tr>
                 <th>Apprentice ID</th>
