@@ -7,7 +7,9 @@
     <title>Apprentice Dashboard</title>
 
     <!-- Link to external CSS file -->
-    @vite(['resources\css\app.css']) <!-- Laravel Vite integration -->
+    <link rel="stylesheet" href="{{ asset('stylesheets/desktop.css') }}">
+    @vite('resources/css/desktop.css')
+      <!-- Laravel Vite integration -->
 
 </head>
 <body>
