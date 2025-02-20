@@ -14,6 +14,7 @@
       <!-- Laravel Vite integration -->
 
 </head>
+
 <body>
     
 
@@ -95,9 +96,12 @@
     <!-- Main Content Section -->
     <div class="content">
         <header>
-            <h1>Welcome, $first_name</h1>
+            <h1>Welcome, {{ Auth::user()->first_name }}</h1>
             <!-- Logout Button with logout-btn class -->
-            <button class="logout-btn" onclick="location.href='{{ route('home') }}'">Logout</button>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="logout-btn">Logout</button>
+            </form>
         </header>
 
         <!-- Stats Section -->

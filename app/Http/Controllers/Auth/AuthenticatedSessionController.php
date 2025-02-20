@@ -22,7 +22,15 @@ class AuthenticatedSessionController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('apprenticesection/dashboard');
+            // Check the user's role and redirect accordingly
+            $user = Auth::user();
+            if ($user->role == 'apprentice') {
+                return redirect()->intended('/apprenticesection/apprentice');
+            } elseif ($user->role == 'admin') {
+                return redirect()->intended('/adminsection/admin');
+            } else {
+                return redirect()->intended('/');
+            }
         }
 
         return back()->withErrors([
