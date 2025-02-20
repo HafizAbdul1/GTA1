@@ -48,6 +48,7 @@ Route::middleware('auth')->group(function () {
     })->name('dashboard');
 });
 
+
 // Other routes
 
 // Default home route (accessible by anyone)
