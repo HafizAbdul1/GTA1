@@ -87,3 +87,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+
+
+
+
+
+
+
+
+// Mentors Section Routes (visible after login)
+Route::get('/mentorsection/mentor', function () {
+    return view('profile.MentorSection.Mentor'); 
+})->name('mentorsection.mentor');
