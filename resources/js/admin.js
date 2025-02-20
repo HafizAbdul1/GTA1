@@ -55,3 +55,4 @@ subMenuButtons.forEach(button => {
 toggleButton.addEventListener('click', function() {
   toggleSidebar();
 });
+
