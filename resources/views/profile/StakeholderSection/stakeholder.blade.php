@@ -8,6 +8,21 @@
 </head>
 <body>
 
+    <div class="sidebar">
+        <h2>GTA Admin</h2>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Users</a></li>
+            <li><a href="#">Apprenticeships</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a onclick="location.href='{{ route('home') }}'">Logout</a></li>
+         
+            
+        </ul>
+    </div>
+
+
 <nav id="sidebar">
     <ul>
       <li>
@@ -82,6 +97,7 @@
     <img src="../../public/images/LogoGta.png" alt="coding2go logo" class="logo">
   </nav>
 
+
     <div class="main-content">
         <header>
             <h1>Welcome Back</h1>
@@ -123,5 +139,6 @@
             </table>
         </section>
     </div>
+    <script src="{{ asset('resources/js/stakeholder.js') }}"></script>
 </body>
 </html>
