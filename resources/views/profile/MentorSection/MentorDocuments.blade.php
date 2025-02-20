@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentor Meetings</title>
-
-    @vite(['resources/css/app.css'])
+    <title>Mentor Documents</title>
     <link rel="stylesheet" href="../../../css/app.css">
 </head>
 <body>
@@ -19,25 +17,5 @@
             <li><a href="MentorSettings.blade.php">Settings</a></li>
         </ul>
     </div>
-
-    <section class="table">
-        <table>
-            <tr>
-                <th>Meeting Date</th>
-                <th>Meeting With</th>
-                <th>Meeting Information</th>
-            </tr>
-            <tr>
-                <td>22/02/25</td>
-                <td>John Smith</td>
-                <td>Discuss progress</td>
-            </tr>
-            <tr>
-                <td>25/02/25</td>
-                <td>Ian Thorpe</td>
-                <td>Attendance checkup</td>
-            </tr>
-        </table>
-    </section>
 </body>
 </html>

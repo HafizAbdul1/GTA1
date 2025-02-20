@@ -6,17 +6,17 @@
     <title>Mentor Apprentices</title>
 
     @vite(['resources/css/app.css'])
-    <link rel="stylesheet" href="stylesheets/app.css">
+    <link rel="stylesheet" href="../../../css/app.css">
 </head>
 <body>
-<div class="sidebar">
+    <div class="sidebar">
         <h2>Mentor Portal</h2>
         <ul>
-            <li><a href="#">Dashboard</a></li>
+            <li><a href="Mentor.blade.php">Dashboard</a></li>
             <li><a href="MentorMeetings.blade.php">Meetings</a></li>
             <li><a href="MentorApprentices.blade.php">Apprentices</a></li>
-            <li><a href="#">Documents</a></li>
-            <li><a href="#">Settings</a></li>
+            <li><a href="MentorDocuments.blade.php">Documents</a></li>
+            <li><a href="MentorSettings.blade.php">Settings</a></li>
         </ul>
     </div>
 
