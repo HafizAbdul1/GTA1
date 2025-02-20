@@ -16,7 +16,7 @@
         </ul>
     @endif
 
-    <form action="{{ route('login.store') }}" method="POST">
+    <form action="{{ route('login') }}" method="POST">
         @csrf
         <label for="id">User ID</label>
         <input type="text" name="id" id="id" required>

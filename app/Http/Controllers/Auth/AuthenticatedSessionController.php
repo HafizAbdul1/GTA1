@@ -2,10 +2,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -14,36 +12,31 @@ class AuthenticatedSessionController extends Controller
         return view('auth.login');
     }
 
-    public function store(LoginRequest $request): RedirectResponse
+    public function store(Request $request)
     {
-        // Attempt authentication using 'id' and 'password'
-        if (Auth::attempt(['id' => $request->id, 'password' => $request->password])) {
-            // Immediately logout the user after they login to make them re-login on the next request
-            Auth::logout();
+        $credentials = $request->validate([
+            'id' => ['required', 'string'],
+            'password' => ['required', 'string'],
+        ]);
 
-            // Regenerate the session after logout to prevent session fixation
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            // Return to the login page again after successful login attempt
-            return redirect()->route('login')->with('message', 'Please log in again.');
+            return redirect()->intended('apprenticesection/dashboard');
         }
 
-        // Return back with an error message if authentication failed
         return back()->withErrors([
-            'id' => 'The provided credentials are incorrect.',
+            'id' => 'The provided credentials do not match our records.',
         ]);
     }
 
-    // Logout functionality
-    public function destroy(Request $request): RedirectResponse
+    public function destroy(Request $request)
     {
         Auth::logout();
 
-        // Fully clear session
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login'); // Always go to login page after logout
+        return redirect('/');
     }
 }
-

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +14,7 @@
     <div class="sidebar">
         <h2>Apprentice Portal</h2>
         <ul>
-        <li><a href="{{ route('login') }}">Dashboard</a></li>
+            <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
             <li><a href="progess.blade.php">Progress</a></li>
             <li><a href="meetings.blade.php">Meetings</a></li>
             <li><a href="attendance.blade.php">Attendance</a></li>
@@ -29,7 +28,10 @@
         <header>
             <h1>Welcome, $first_name</h1>
             <!-- Logout Button with logout-btn class -->
-            <button class="logout-btn" onclick="location.href='{{ route('home') }}'">Logout</button>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="logout-btn">Logout</button>
+            </form>
         </header>
 
         <!-- Stats Section -->
@@ -58,4 +60,3 @@
 
 </body>
 </html>
-<?php
