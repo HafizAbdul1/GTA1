@@ -4,58 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-
-    <!-- External Stylesheets -->
-    <link rel="stylesheet" href="{{ asset('stylesheets/desktop.css') }}">
-    @vite('resources/css/desktop.css') <!-- Ensure Vite is properly configured -->
+    @vite(['resources/css/login.css']) <!-- Link admin CSS -->
+    @vite(['resources/css/home.css'])
 </head>
-
 <body>
 
-    <div class="nav">
-        <ul>
-            <li class="Home"><img src="{{ asset('images/LogoGta.png') }}" alt="Logo"></li>
-            <li><a href="{{ route('login') }}">Login</a></li>
-            <li><a href="{{ route('example.route') }}">Example</a></li>
-            <li><a href="{{ route('example.route') }}">Example</a></li>
+
+    <!-- Header Section -->
+<header>
+    <nav>
+        <div class="logo">
+            <img src="../public/images/LogoGta.png" alt="GTA Logo"> <!-- Replace with your logo -->
+        </div>
+        <ul class="nav-links">
+            <li><a href="home">Home</a></li>
+            <li><a href="#">Apprenticeships</a></li>
+            <li><a href="#">Employers</a></li>
+            <li><a href="#">Training</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
-    </div>
+    </nav>
+</header>
 
-    <div class="login-container">
-        <form class="login-form" method="POST" action="{{ route('login.store') }}">
-            @csrf
-            <div>
-                <label for="id">Enter ID:</label><br>
-                <input type="text" id="id" name="id" class="id-password" required><br>
-            </div>
+    @if($errors->any())
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
 
-            <div>
-                <label for="password">Enter Password:</label><br>
-                <input type="password" id="password" name="password" class="id-password" required><br>
-            </div>
+<<<<<<< HEAD
+    <form action="{{ route('login') }}" method="POST">
+=======
+    <div class="container">
+    <h1>Login</h1>
+    <form action="{{ route('login.store') }}" method="POST">
+>>>>>>> 358dd09cee4b6c2a4f33490e05217e4d00731b58
+        @csrf
+        <label for="id">User ID</label>
+        <input type="text" name="id" id="id" required>
 
-            @if($errors->any())
-                <div class="error-messages">
-                    <ul>
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
 
-            <button type="submit" class="login-button">Login</button>
-        </form>
-    </div>
+        <button type="submit">Login</button>
+    </form>
+</div>
 
+
+    <!-- Footer -->
     <footer>
-        <ul>
-            <li class="footer-email">admin@doncastergta.co.uk</li>
-            <li><a href="PrivacyPolicy.html">Privacy Policy</a></li>
-            <li><a href="TermsCond.html">Terms & Conditions</a></li>
-            <li>+44(0)1302 832831</li>
-            <li>©2025 by GTA Group Training Association.</li>
-        </ul>
+        <p>© 2025 Group Training Association. All Rights Reserved.</p>
     </footer>
 
 </body>

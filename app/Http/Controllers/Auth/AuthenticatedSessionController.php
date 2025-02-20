@@ -2,10 +2,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -14,38 +12,31 @@ class AuthenticatedSessionController extends Controller
         return view('auth.login');
     }
 
-    public function store(LoginRequest $request): RedirectResponse
+    public function store(Request $request)
     {
-        // Attempt authentication using 'id' and 'password'
-        if (Auth::attempt(['id' => $request->id, 'password' => $request->password])) {
+        $credentials = $request->validate([
+            'id' => ['required', 'string'],
+            'password' => ['required', 'string'],
+        ]);
+
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            $user = Auth::user();
-
-            // Redirect based on user role
-            if ($user->role === 'apprentice') {
-                return redirect()->route('apprentice.dashboard');
-            } elseif ($user->role === 'employer') {
-                return redirect()->route('employer.dashboard');
-            } elseif ($user->role === 'tutor') {
-                return redirect()->route('tutor.dashboard');
-            }
-
-            return redirect()->intended('/'); // Redirect to home if no specific role
+            return redirect()->intended('apprenticesection/dashboard');
         }
 
         return back()->withErrors([
-            'id' => 'The provided credentials are incorrect.',
+            'id' => 'The provided credentials do not match our records.',
         ]);
     }
 
-    // Logout functionality
-    public function destroy(Request $request): RedirectResponse
+    public function destroy(Request $request)
     {
         Auth::logout();
+
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/'); // Redirect to home after logout
+        return redirect('/');
     }
 }
