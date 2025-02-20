@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    @vite(['resources/css/admin.css']) <!-- Vite CSS link -->
+    @vite(['resources/css/admin.css'])
+    @vite(['resources/js/admin.js']) <!-- Vite CSS link -->
 </head>
 <body>
-<<<<<<< HEAD
+
     <div class="sidebar">
         <h2>GTA Admin</h2>
         <ul>
@@ -21,7 +22,7 @@
             
         </ul>
     </div>
-=======
+
 
 <nav id="sidebar">
     <ul>
@@ -96,7 +97,6 @@
     </ul>
     <img src="../../public/images/LogoGta.png" alt="coding2go logo" class="logo">
   </nav>
->>>>>>> 358dd09cee4b6c2a4f33490e05217e4d00731b58
 
     <div class="main-content">
         <header>
