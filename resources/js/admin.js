@@ -1,10 +1,14 @@
 const toggleButton = document.getElementById('toggle-btn');
 const sidebar = document.getElementById('sidebar');
+const logo = document.querySelector('.logo'); // Select the logo element
 
 function toggleSidebar() {
   sidebar.classList.toggle('close');
   toggleButton.classList.toggle('rotate');
   
+  // Toggle the visibility of the logo when sidebar is opened or closed
+  logo.classList.toggle('hide'); // Hide logo when sidebar is opened
+
   closeAllSubMenus();  // Close any open submenus when the sidebar is toggled
 }
 
