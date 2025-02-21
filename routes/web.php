@@ -54,7 +54,7 @@ Route::middleware('auth')->group(function () {
     })->name('apprentice.dashboard');
 
     Route::get('/adminsection/admin', function () {
-        return view('profile.adminsection.admin');
+        return view('profile.AdminSection.admin');
     })->name('admin.dashboard');
 });
 
@@ -70,9 +70,9 @@ Route::get('/adminsection/admin', function () {
     return view('profile.adminsection.admin'); 
 })->name('adminsection.admin');
 
-Route::get('/Employers/Employers', function () {
-    return view('profile.Employers.Employers'); 
-})->name('Employers.Employers');
+Route::get('/employersection/employer', function () {
+    return view('profile.employerSection.employer'); 
+})->name('employersection.employer');
 
 
 // Apprentices Section Routes (visible after login)

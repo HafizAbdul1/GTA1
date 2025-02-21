@@ -85,8 +85,15 @@
 
 
     <div class="main-content">
+        
+    <div class="content">
         <header>
-            <h1>Welcome Back</h1>
+          <h1>Welcome!</h1> <!-- TEMPORARY
+<!-- <h1>Welcome, {{ Auth::user()->first_name }}</h1>  THIS ONE HAS BEEN LIKE THIS TEMPORARILY -->
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="logout-btn">Logout</button>
+            </form>
         </header>
         
         <section class="cards">
