@@ -14,6 +14,7 @@
       <!-- Laravel Vite integration -->
 
 </head>
+
 <body>
     
 
@@ -92,12 +93,13 @@
     <img src="../../public/images/LogoGta.png" alt="coding2go logo" class="logo">
   </nav>
 
-    <!-- Main Content Section -->
     <div class="content">
         <header>
-            <h1>Welcome, $first_name</h1>
-            <!-- Logout Button with logout-btn class -->
-            <button class="logout-btn" onclick="location.href='{{ route('home') }}'">Logout</button>
+            <h1>Welcome, {{ Auth::user()->first_name }}</h1>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="logout-btn">Logout</button>
+            </form>
         </header>
 
         <!-- Stats Section -->

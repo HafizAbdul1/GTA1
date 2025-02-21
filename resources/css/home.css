@@ -89,7 +89,15 @@ nav {
     width: 250px; /* Adjust logo size */
     height: auto;
 }
+.image-logologin {
+    flex: 1;
+    text-align: center;
+}
 
+.image-logologin img {
+    width: 200px; /* Adjust logo size */
+    height: auto;
+}
 
 /* Hero Content (Text) */
 .hero-content {

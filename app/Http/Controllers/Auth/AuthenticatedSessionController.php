@@ -22,12 +22,20 @@ class AuthenticatedSessionController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('apprenticesection/dashboard');
+            // Check the user's role and redirect accordingly
+            $user = Auth::user();
+            if ($user->role == 'apprentice') {
+                return redirect()->intended('/apprenticesection/apprentice');
+            } elseif ($user->role == 'admin') {
+                return redirect()->intended('/adminsection/admin');
+            } elseif ($user->role == 'tutor') {
+                return redirect()->intended('/mentorsection/mentor');
+            } elseif ($user->role == 'employer') {
+                return redirect()->intended('/employersection/employer');
+            } else {
+                return redirect()->intended('/');
+            }
         }
-
-        return back()->withErrors([
-            'id' => 'The provided credentials do not match our records.',
-        ]);
     }
 
     public function destroy(Request $request)

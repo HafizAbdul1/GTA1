@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
-    Route::post('/login', [AuthenticatedSessionController::class, 'store']);
+    Route::post('/login', [AuthenticatedSessionController::class, 'store'])->name('login.store');
 
     Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
     Route::post('/register', [RegisteredUserController::class, 'store']);
@@ -48,6 +48,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/apprenticesection/dashboard', function () {
+        return view('profile.ApprenticeSection.dashboard');
+    })->name('apprentice.dashboard');
+
+    Route::get('/adminsection/admin', function () {
+        return view('profile.AdminSection.admin');
+    })->name('admin.dashboard');
 });
 
 
@@ -62,9 +70,9 @@ Route::get('/adminsection/admin', function () {
     return view('profile.adminsection.admin'); 
 })->name('adminsection.admin');
 
-Route::get('/StakeholderSection/stakeholder', function () {
-    return view('profile.StakeholderSection.stakeholder'); 
-})->name('StakeholderSection.stakeholder');
+Route::get('/employersection/employer', function () {
+    return view('profile.employerSection.employer'); 
+})->name('employersection.employer');
 
 
 // Apprentices Section Routes (visible after login)
