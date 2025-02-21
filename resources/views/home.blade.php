@@ -12,7 +12,6 @@
 
 <body>
 
-<<<<<<< HEAD
     <!-- Header Section -->
 <header>
     <nav>
@@ -31,8 +30,6 @@
 
 
 
-=======
->>>>>>> 1d77c671077b4ab14eba32910280ad507b9cd493
 <section class="hero">
     <div class="hero-container">
         <!-- Left Side - Logo -->
