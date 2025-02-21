@@ -75,7 +75,7 @@ Route::get('/employersection/employer', function () {
 })->name('employersection.employer');
 
 
-// Apprentices Section Routes (visible after login)
+// -----------------------------------------  Apprentices Section Routes (visible after login) ------------------------------------
 Route::get('/apprenticesection/apprentice', function () {
     return view('profile.ApprenticeSection.apprentice'); 
 })->name('apprenticesection.apprentice');
@@ -85,7 +85,7 @@ Route::get('/apprenticesection/dashboard', function () {
 })->name('apprenticesection.dashboard');
 
 
-// Profile-related Routes (auth middleware to access)
+// ---------------------------------- Profile-related Routes (auth middleware to access) -----------------------------------------
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('profile')->group(function () {
         Route::get('/', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -99,13 +99,50 @@ require __DIR__.'/auth.php';
 
 
 
+// ---------------------------------------------------------- Admin Section Routes ----------------------------------------------
+
+Route::get('/adminsection/add-apprentice', function () {
+    return view('profile.AdminSection.add-apprentice'); 
+})->name('adminsection.add-apprentice');
+
+Route::get('/adminsection/view-apprentice', function () {
+    return view('profile.AdminSection.view-apprentice'); 
+})->name('adminsection.view-apprentice');
+
+Route::get('/adminsection/add-apprenticeship', function () {
+    return view('profile.AdminSection.add-apprenticeship'); 
+})->name('adminsection.add-apprenticeship');
+
+Route::get('/adminsection/view-apprenticeship', function () {
+    return view('profile.AdminSection.view-apprenticeship'); 
+})->name('adminsection.view-apprenticeship');
+
+Route::get('/adminsection/add-employer', function () {
+    return view('profile.AdminSection.add-employer'); 
+})->name('adminsection.add-employer');
+
+Route::get('/adminsection/view-employer', function () {
+    return view('profile.AdminSection.view-employer'); 
+})->name('adminsection.view-employer');
+
+Route::get('/adminsection/add-mentor', function () {
+    return view('profile.AdminSection.add-mentor'); 
+})->name('adminsection.add-mentor');
+
+Route::get('/adminsection/view-mentor', function () {
+    return view('profile.AdminSection.view-mentor'); 
+})->name('adminsection.view-mentor');
+
+Route::get('/adminsection/reports', function () {
+    return view('profile.AdminSection.reports'); 
+})->name('adminsection.reports');
+
+Route::get('/adminsection/settings', function () {
+    return view('profile.AdminSection.settings'); 
+})->name('adminsection.settings');
 
 
-
-
-
-
-// Mentors Section Routes (visible after login)
+// -------------------------------------------- Mentors Section Routes (visible after login) -----------------------------------
 Route::get('/mentorsection/mentor', function () {
     return view('profile.MentorSection.Mentor'); 
 })->name('mentorsection.mentor');

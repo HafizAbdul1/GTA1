@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Add Apprentice</title>
     @vite(['resources/css/admin.css']) 
     @vite(['resources/js/sidemenu.js']) 
 </head>
@@ -17,7 +17,7 @@
         </button>
       </li>
       <li>
-        <a href="index.html">
+        <a href="{{ route('adminsection.admin') }}">
           <img src="../../public/images/icons/home.png" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-240v-32q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v32q0 33-23.5 56.5T720-160H240q-33 0-56.5-23.5T160-240Zm80 0h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z">
           <span>Dashboard</span>
         </a>
@@ -30,8 +30,8 @@
         </button>
         <ul class="sub-menu">
           <div>
-            <li><a href="#">View Apprenticeship</a></li>
-            <li class="active"><a href="#">Add Apprenticeship</a></li>
+            <li><a href="{{ route('adminsection.view-apprenticeship') }}">View Apprenticeship</a></li>
+            <li><a href="{{ route('adminsection.add-apprenticeship') }}">Add Apprenticeship</a></li>
           </div>
         </ul>
       </li>
@@ -43,8 +43,8 @@
         </button>
         <ul class="sub-menu">
           <div>
-            <li><a href="#">View Apprentice</a></li>
-            <li><a href="#">Add Apprentice</a></li>
+            <li><a href="{{ route('adminsection.view-apprentice') }}">View Apprentice</a></li>
+            <li class="active"><a href="{{ route('adminsection.add-apprentice') }}">Add Apprentice</a></li>
           </div>
         </ul>
       </li>
@@ -56,8 +56,8 @@
         </button>
         <ul class="sub-menu">
           <div>
-            <li><a href="#">View Employer</a></li>
-            <li><a href="#">Add Employer</a></li>
+            <li><a href="{{ route('adminsection.view-employer') }}">View Employer</a></li>
+            <li><a href="{{ route('adminsection.add-employer') }}">Add Employer</a></li>
           </div>
         </ul>
       </li>
@@ -69,19 +69,19 @@
         </button>
         <ul class="sub-menu">
           <div>
-            <li><a href="#">View Mentor</a></li>
-            <li><a href="#">Add Mentor</a></li>
+            <li><a href="{{ route('adminsection.view-mentor') }}">View Mentor</a></li>
+            <li><a href="{{ route('adminsection.add-mentor') }}">Add Mentor</a></li>
           </div>
         </ul>
       </li>
       <li>
-        <a href="calendar.html">
+        <a href="{{ route('adminsection.reports') }}">
         <img src="../../public/images/icons/report.png" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-240v-32q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v32q0 33-23.5 56.5T720-160H240q-33 0-56.5-23.5T160-240Zm80 0h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z">
           <span>Reports</span>
         </a>
       </li>
       <li>
-        <a href="profile.html">
+        <a href="{{ route('adminsection.settings') }}">
         <img src="../../public/images/icons/settings.png" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-240v-32q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v32q0 33-23.5 56.5T720-160H240q-33 0-56.5-23.5T160-240Zm80 0h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z">
           <span>Settings</span>
         </a>
