@@ -10,14 +10,14 @@
 <body>
 
 
-    <!-- Header Section -->
-    <header>
+<!-- Header Section -->
+<header>
     <nav>
         <div class="logo">
             <img src="../public/images/LogoGta.png" alt="GTA Logo"> <!-- Replace with your logo -->
         </div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
+            <li><a href="{{ route('home') }}">Home</a></li>
             <li><a href="#">Apprenticeships</a></li>
             <li><a href="#">Employers</a></li>
             <li><a href="#">Training</a></li>
@@ -26,6 +26,7 @@
     </nav>
 </header>
 
+
     @if($errors->any())
         <ul>
             @foreach($errors->all() as $error)
@@ -33,12 +34,12 @@
             @endforeach
         </ul>
     @endif
-    <div class="image-logologin">
-            <img src="../public/images/LogoGta.png" alt="GTA Logo">
-        </div>
+
 
     <div class="container">
+
     <h1>Login</h1>
+
     <form action="{{ route('login.store') }}" method="POST">
         @csrf
         <label for="id">User ID</label>
