@@ -9,6 +9,23 @@
 </head>
 <body>
 
+
+    <!-- Header Section -->
+    <header>
+    <nav>
+        <div class="logo">
+            <img src="../public/images/LogoGta.png" alt="GTA Logo"> <!-- Replace with your logo -->
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Apprenticeships</a></li>
+            <li><a href="#">Employers</a></li>
+            <li><a href="#">Training</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
     @if($errors->any())
         <ul>
             @foreach($errors->all() as $error)
