@@ -11,6 +11,8 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\ProfileController; // Importing ProfileController
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApprenticeshipController;
+
 
 // Guest Routes - Not authenticated yet
 Route::middleware('guest')->group(function () {
@@ -140,6 +142,19 @@ Route::get('/adminsection/reports', function () {
 Route::get('/adminsection/settings', function () {
     return view('profile.AdminSection.settings'); 
 })->name('adminsection.settings');
+
+Route::post('/adminsection/store-apprenticeship', [ApprenticeshipController::class, 'store'])
+    ->name('adminsection.store-apprenticeship');
+
+
+    Route::get('/adminsection/view-apprenticeship', [ApprenticeshipController::class, 'index'])
+        ->name('adminsection.view-apprenticeship');
+    
+
+
+
+
+
 
 
 // -------------------------------------------- Mentors Section Routes (visible after login) -----------------------------------

@@ -102,22 +102,22 @@
 
 
   
-<div class="main-content">
+  <div class="main-content">
 
+  <h1 class="title-add">Add Apprenticeship</h1>
+    <form action="{{ route('adminsection.store-apprenticeship') }}" method="POST">
+        @csrf
+        <label for="apprenticeship_name">Apprenticeship Name:</label>
+        <input type="text" id="apprenticeship_name" name="apprenticeship_name" required>
 
+        <label for="years">Duration (Years):</label>
+        <input type="number" id="years" name="years" min="1" required>
 
-
-
-
-
-
-
-
-
-
-
+        <button type="submit">Add Apprenticeship</button>
+    </form>
 
 </div>
+
 
 </body>
 </html>
