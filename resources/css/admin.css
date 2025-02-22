@@ -296,6 +296,9 @@ header {
 }
 
 .title-add {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
   font-size: 30px;
   color: #530000;
   margin-bottom: 20px;
