@@ -104,17 +104,60 @@
   
   <div class="main-content">
 
-  <h1 class="title-add">Add Apprenticeship</h1>
-    <form action="{{ route('adminsection.store-apprenticeship') }}" method="POST">
-        @csrf
-        <label for="apprenticeship_name">Apprenticeship Name:</label>
-        <input type="text" id="apprenticeship_name" name="apprenticeship_name" required>
+  <h1 class="title">Add Apprenticeship</h1>
+<form action="{{ route('adminsection.store-apprenticeship') }}" method="POST">
+    @csrf
+    <label for="apprenticeship_name">Apprenticeship Name:</label>
+    <input type="text" id="apprenticeship_name" name="apprenticeship_name" required>
 
-        <label for="years">Duration (Years):</label>
-        <input type="number" id="years" name="years" min="1" required>
+    <label for="years">Duration (Years):</label>
+    <input type="number" id="years" name="years" min="1" required>
 
-        <button type="submit">Add Apprenticeship</button>
-    </form>
+    <h2>Groups</h2>
+    <table id="groupsTable">
+        <thead>
+            <tr>
+                <th>Component Name</th>
+                <th>Milestone</th>
+                <th>Year</th>
+                <th>Individual Weighting</th>
+                <th>Progressive Weighting</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <button type="button" id="addGroup">Add New Group</button>
+    
+    <button type="submit">Create Apprenticeship</button>
+</form>
+
+<script>
+    document.getElementById('addGroup').addEventListener('click', function() {
+        let table = document.getElementById('groupsTable').getElementsByTagName('tbody')[0];
+        let newRow = table.insertRow();
+        
+        let fields = ['group_name', 'milestone', 'year', 'individual_weighting', 'progressive_weighting'];
+        fields.forEach((field, index) => {
+            let cell = newRow.insertCell(index);
+            let input = document.createElement('input');
+            input.type = index === 2 ? 'number' : 'text';
+            input.name = `groups[][${field}]`;
+            input.required = true;
+            cell.appendChild(input);
+        });
+
+        let deleteCell = newRow.insertCell(5);
+        let deleteButton = document.createElement('button');
+        deleteButton.type = 'button';
+        deleteButton.textContent = 'Remove';
+        deleteButton.addEventListener('click', function() {
+            table.deleteRow(newRow.rowIndex - 1);
+        });
+        deleteCell.appendChild(deleteButton);
+    });
+</script>
+
 
 </div>
 
