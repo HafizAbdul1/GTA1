@@ -114,7 +114,7 @@
         <label for="years">Duration (Years):</label>
         <input type="number" id="years" name="years" min="1" required>
 
-        <h2>Groups</h2>
+        <h2>Components</h2>
         <table id="groupsTable">
             <thead>
                 <tr>
@@ -130,7 +130,7 @@
                 <!-- Rows will be added dynamically here -->
             </tbody>
         </table>
-        <button type="button" onclick="addGroupRow()">Add New Group</button>
+        <button type="button" onclick="addGroupRow()">Add New Component</button>
 
         <button type="submit">Create Apprenticeship</button>
     </form>
