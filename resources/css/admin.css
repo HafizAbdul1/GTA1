@@ -68,6 +68,23 @@ header {
     background: #f4f4f4;
 }
 
+.btn {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 2px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.btn-view {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-edit {
+  background-color: #28a745;
+  color: white;
+}
 
 
 
@@ -253,4 +270,75 @@ header {
       }
     }
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+}
+
+.title-add {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  font-size: 30px;
+  color: #530000;
+  margin-bottom: 20px;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  text-align: left;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
 }

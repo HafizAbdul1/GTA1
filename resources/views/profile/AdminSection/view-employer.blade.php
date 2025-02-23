@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Apprentice</title>
+    <title>View Employers</title>
     @vite(['resources/css/admin.css']) 
     @vite(['resources/js/sidemenu.js']) 
 </head>
@@ -44,7 +44,7 @@
         <ul class="sub-menu">
           <div>
             <li><a href="{{ route('adminsection.view-apprentice') }}">View Apprentices</a></li>
-            <li class="active"><a href="{{ route('adminsection.add-apprentice') }}">Add Apprentice</a></li>
+            <li><a href="{{ route('adminsection.add-apprentice') }}">Add Apprentice</a></li>
           </div>
         </ul>
       </li>
@@ -56,7 +56,7 @@
         </button>
         <ul class="sub-menu">
           <div>
-            <li><a href="{{ route('adminsection.view-employer') }}">View Employers</a></li>
+            <li class="active"><a href="{{ route('adminsection.view-employer') }}">View Employers</a></li>
             <li><a href="{{ route('adminsection.add-employer') }}">Add Employer</a></li>
           </div>
         </ul>
@@ -102,7 +102,7 @@
 <div class="main-content">
     <div class="content">
         <header>
-            <h1>Add Apprentice</h1>
+            <h1>View Employers</h1>
         </header>
         
         <section class="cards">

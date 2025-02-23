@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Apprentice</title>
+    <title>Add Apprenticeship</title>
     @vite(['resources/css/admin.css']) 
     @vite(['resources/js/sidemenu.js']) 
 </head>
@@ -31,7 +31,7 @@
         <ul class="sub-menu">
           <div>
             <li><a href="{{ route('adminsection.view-apprenticeship') }}">View Apprenticeships</a></li>
-            <li><a href="{{ route('adminsection.add-apprenticeship') }}">Add Apprenticeship</a></li>
+            <li class="active"><a href="{{ route('adminsection.add-apprenticeship') }}">Add Apprenticeship</a></li>
           </div>
         </ul>
       </li>
@@ -44,7 +44,7 @@
         <ul class="sub-menu">
           <div>
             <li><a href="{{ route('adminsection.view-apprentice') }}">View Apprentices</a></li>
-            <li class="active"><a href="{{ route('adminsection.add-apprentice') }}">Add Apprentice</a></li>
+            <li><a href="{{ route('adminsection.add-apprentice') }}">Add Apprentice</a></li>
           </div>
         </ul>
       </li>
@@ -99,49 +99,65 @@
     <img src="../../public/images/LogoGta.png" alt="coding2go logo" class="logo">
   </nav>
 
-<div class="main-content">
-    <div class="content">
-        <header>
-            <h1>Add Apprentice</h1>
-        </header>
-        
-        <section class="cards">
-            <div class="card">
-                <h3>Total Apprentices</h3>
-                <p>120</p>
-            </div>
-            <div class="card">
-                <h3>Employers</h3>
-                <p>45</p>
-            </div>
-            <div class="card">
-                <h3>New Applications</h3>
-                <p>12</p>
-            </div>
-        </section>
 
-        <section class="recent">
-            <h2>Recent Applications</h2>
-            <table>
+
+  
+  <div class="main-content">
+
+  <h1 class="title">Add Apprenticeship</h1>
+    <form action="{{ route('adminsection.store-apprenticeship') }}" method="POST">
+        @csrf
+        
+        <label for="apprenticeship_name">Apprenticeship Name:</label>
+        <input type="text" id="apprenticeship_name" name="apprenticeship_name" required>
+
+        <label for="years">Duration (Years):</label>
+        <input type="number" id="years" name="years" min="1" required>
+
+        <h2>Components</h2>
+        <table id="groupsTable">
+            <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Apprenticeship</th>
-                    <th>Status</th>
+                    <th>Component Name</th>
+                    <th>Milestone</th>
+                    <th>Year</th>
+                    <th>Individual Weighting</th>
+                    <th>Progressive Weighting</th>
+                    <th>Action</th>
                 </tr>
-                <tr>
-                    <td>John Doe</td>
-                    <td>Software Developer</td>
-                    <td>Pending</td>
-                </tr>
-                <tr>
-                    <td>Jane Smith</td>
-                    <td>Marketing Assistant</td>
-                    <td>Approved</td>
-                </tr>
-            </table>
-        </section>
-    </div>
+            </thead>
+            <tbody>
+                <!-- Rows will be added dynamically here -->
+            </tbody>
+        </table>
+        <button type="button" onclick="addGroupRow()">Add New Component</button>
+
+        <button type="submit">Create Apprenticeship</button>
+    </form>
+
+    <script>
+        function addGroupRow() {
+            let table = document.getElementById('groupsTable').getElementsByTagName('tbody')[0];
+            let newRow = table.insertRow();
+            
+            newRow.innerHTML = `
+                <td><input type="text" name="groups[group_name][]" required></td>
+                <td><input type="text" name="groups[milestone][]"></td>
+                <td><input type="number" name="groups[year][]" min="1"></td>
+                <td><input type="number" name="groups[individual_weighting][]" min="0"></td>
+                <td><input type="number" name="groups[progressive_weighting][]" min="0"></td>
+                <td><button type="button" onclick="removeGroupRow(this)">Remove</button></td>
+            `;
+        }
+        
+        function removeGroupRow(button) {
+            button.closest('tr').remove();
+        }
+    </script>
+
+
 </div>
+
 
 </body>
 </html>
