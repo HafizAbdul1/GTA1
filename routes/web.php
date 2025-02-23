@@ -12,6 +12,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\ProfileController; // Importing ProfileController
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApprenticeshipController;
+use App\Http\Controllers\ApprenticeController;
 use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\MentorController;
 
@@ -152,7 +153,12 @@ Route::get('/adminsection/view-apprenticeship', [ApprenticeshipController::class
     
 Route::get('/adminsection/edit-apprenticeship/{id}', [ApprenticeshipController::class, 'edit'])->name('adminsection.edit-apprenticeship');
 
-    
+
+Route::get('/admin/add-apprentice', [ApprenticeController::class, 'createApprentice'])->name('adminsection.add-apprentice');
+
+Route::post('/admin/add-apprentice', [ApprenticeController::class, 'storeApprentice'])->name('adminsection.store-apprentice');
+
+
 Route::get('/admin/add-employer', [EmployerController::class, 'createEmployer'])->name('adminsection.add-employer');
 
 Route::post('/admin/add-employer', [EmployerController::class, 'storeEmployer'])->name('adminsection.store-employer');
