@@ -105,58 +105,55 @@
   <div class="main-content">
 
   <h1 class="title">Add Apprenticeship</h1>
-<form action="{{ route('adminsection.store-apprenticeship') }}" method="POST">
-    @csrf
-    <label for="apprenticeship_name">Apprenticeship Name:</label>
-    <input type="text" id="apprenticeship_name" name="apprenticeship_name" required>
-
-    <label for="years">Duration (Years):</label>
-    <input type="number" id="years" name="years" min="1" required>
-
-    <h2>Groups</h2>
-    <table id="groupsTable">
-        <thead>
-            <tr>
-                <th>Component Name</th>
-                <th>Milestone</th>
-                <th>Year</th>
-                <th>Individual Weighting</th>
-                <th>Progressive Weighting</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
-    <button type="button" id="addGroup">Add New Group</button>
-    
-    <button type="submit">Create Apprenticeship</button>
-</form>
-
-<script>
-    document.getElementById('addGroup').addEventListener('click', function() {
-        let table = document.getElementById('groupsTable').getElementsByTagName('tbody')[0];
-        let newRow = table.insertRow();
+    <form action="{{ route('adminsection.store-apprenticeship') }}" method="POST">
+        @csrf
         
-        let fields = ['group_name', 'milestone', 'year', 'individual_weighting', 'progressive_weighting'];
-        fields.forEach((field, index) => {
-            let cell = newRow.insertCell(index);
-            let input = document.createElement('input');
-            input.type = index === 2 ? 'number' : 'text';
-            input.name = `groups[][${field}]`;
-            input.required = true;
-            cell.appendChild(input);
-        });
+        <label for="apprenticeship_name">Apprenticeship Name:</label>
+        <input type="text" id="apprenticeship_name" name="apprenticeship_name" required>
 
-        let deleteCell = newRow.insertCell(5);
-        let deleteButton = document.createElement('button');
-        deleteButton.type = 'button';
-        deleteButton.textContent = 'Remove';
-        deleteButton.addEventListener('click', function() {
-            table.deleteRow(newRow.rowIndex - 1);
-        });
-        deleteCell.appendChild(deleteButton);
-    });
-</script>
+        <label for="years">Duration (Years):</label>
+        <input type="number" id="years" name="years" min="1" required>
+
+        <h2>Groups</h2>
+        <table id="groupsTable">
+            <thead>
+                <tr>
+                    <th>Component Name</th>
+                    <th>Milestone</th>
+                    <th>Year</th>
+                    <th>Individual Weighting</th>
+                    <th>Progressive Weighting</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be added dynamically here -->
+            </tbody>
+        </table>
+        <button type="button" onclick="addGroupRow()">Add New Group</button>
+
+        <button type="submit">Create Apprenticeship</button>
+    </form>
+
+    <script>
+        function addGroupRow() {
+            let table = document.getElementById('groupsTable').getElementsByTagName('tbody')[0];
+            let newRow = table.insertRow();
+            
+            newRow.innerHTML = `
+                <td><input type="text" name="groups[group_name][]" required></td>
+                <td><input type="text" name="groups[milestone][]"></td>
+                <td><input type="number" name="groups[year][]" min="1"></td>
+                <td><input type="number" name="groups[individual_weighting][]" min="0"></td>
+                <td><input type="number" name="groups[progressive_weighting][]" min="0"></td>
+                <td><button type="button" onclick="removeGroupRow(this)">Remove</button></td>
+            `;
+        }
+        
+        function removeGroupRow(button) {
+            button.closest('tr').remove();
+        }
+    </script>
 
 
 </div>
