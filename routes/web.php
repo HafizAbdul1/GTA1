@@ -12,6 +12,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\ProfileController; // Importing ProfileController
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApprenticeshipController;
+use App\Http\Controllers\AdminController;
 
 
 // Guest Routes - Not authenticated yet
@@ -153,9 +154,10 @@ Route::get('/adminsection/view-apprenticeship', [ApprenticeshipController::class
 Route::get('/adminsection/edit-apprenticeship/{id}', [ApprenticeshipController::class, 'edit'])
     ->name('adminsection.edit-apprenticeship');
 
-
-
-
+    
+    Route::get('/admin/add-employer', [AdminController::class, 'createEmployer'])->name('adminsection.add-employer');
+    Route::post('/admin/add-employer', [AdminController::class, 'storeEmployer'])->name('adminsection.store-employer');
+    
 
 
 

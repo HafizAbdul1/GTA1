@@ -104,43 +104,41 @@
         <header>
             <h1>Add Employer</h1>
         </header>
-        
-        <section class="cards">
-            <div class="card">
-                <h3>Total Apprentices</h3>
-                <p>120</p>
-            </div>
-            <div class="card">
-                <h3>Employers</h3>
-                <p>45</p>
-            </div>
-            <div class="card">
-                <h3>New Applications</h3>
-                <p>12</p>
-            </div>
-        </section>
-
-        <section class="recent">
-            <h2>Recent Applications</h2>
-            <table>
-                <tr>
-                    <th>Name</th>
-                    <th>Apprenticeship</th>
-                    <th>Status</th>
-                </tr>
-                <tr>
-                    <td>John Doe</td>
-                    <td>Software Developer</td>
-                    <td>Pending</td>
-                </tr>
-                <tr>
-                    <td>Jane Smith</td>
-                    <td>Marketing Assistant</td>
-                    <td>Approved</td>
-                </tr>
-            </table>
-        </section>
+        <div class="container">
+    <h2>Add Employer</h2>
+    <form action="{{ route('adminsection.store-employer') }}" method="POST">
+    @csrf
+    <div>
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" required>
     </div>
+    <div>
+        <label for="middle_name">Middle Name (Optional):</label>
+        <input type="text" id="middle_name" name="middle_name">
+    </div>
+    <div>
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" required>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+    <button type="submit">Add Employer</button>
+</form>
+
+</div>
+      
+
+
 </div>
 
 </body>
