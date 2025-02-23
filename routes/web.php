@@ -13,6 +13,7 @@ use App\Http\Controllers\ProfileController; // Importing ProfileController
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApprenticeshipController;
 use App\Http\Controllers\EmployerController;
+use App\Http\Controllers\MentorController;
 
 
 // Guest Routes - Not authenticated yet
@@ -145,19 +146,21 @@ Route::get('/adminsection/settings', function () {
 })->name('adminsection.settings');
 
 
-Route::post('/adminsection/store-apprenticeship', [ApprenticeshipController::class, 'store'])
-    ->name('adminsection.store-apprenticeship');
+Route::post('/adminsection/store-apprenticeship', [ApprenticeshipController::class, 'store'])->name('adminsection.store-apprenticeship');
 
-Route::get('/adminsection/view-apprenticeship', [ApprenticeshipController::class, 'index'])
-    ->name('adminsection.view-apprenticeship');
+Route::get('/adminsection/view-apprenticeship', [ApprenticeshipController::class, 'index'])->name('adminsection.view-apprenticeship');
     
-Route::get('/adminsection/edit-apprenticeship/{id}', [ApprenticeshipController::class, 'edit'])
-    ->name('adminsection.edit-apprenticeship');
+Route::get('/adminsection/edit-apprenticeship/{id}', [ApprenticeshipController::class, 'edit'])->name('adminsection.edit-apprenticeship');
 
     
-    Route::get('/admin/add-employer', [EmployerController::class, 'createEmployer'])->name('adminsection.add-employer');
-    Route::post('/admin/add-employer', [EmployerController::class, 'storeEmployer'])->name('adminsection.store-employer');
-    
+Route::get('/admin/add-employer', [EmployerController::class, 'createEmployer'])->name('adminsection.add-employer');
+
+Route::post('/admin/add-employer', [EmployerController::class, 'storeEmployer'])->name('adminsection.store-employer');
+
+
+Route::get('/admin/add-mentor', [MentorController::class, 'createMentor'])->name('adminsection.add-mentor');
+
+Route::post('/admin/add-mentor', [MentorController::class, 'storeMentor'])->name('adminsection.store-mentor');
 
 
 
