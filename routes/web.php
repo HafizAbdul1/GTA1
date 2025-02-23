@@ -143,13 +143,15 @@ Route::get('/adminsection/settings', function () {
     return view('profile.AdminSection.settings'); 
 })->name('adminsection.settings');
 
+
 Route::post('/adminsection/store-apprenticeship', [ApprenticeshipController::class, 'store'])
     ->name('adminsection.store-apprenticeship');
 
-
-    Route::get('/adminsection/view-apprenticeship', [ApprenticeshipController::class, 'index'])
-        ->name('adminsection.view-apprenticeship');
+Route::get('/adminsection/view-apprenticeship', [ApprenticeshipController::class, 'index'])
+    ->name('adminsection.view-apprenticeship');
     
+Route::get('/adminsection/edit-apprenticeship/{id}', [ApprenticeshipController::class, 'edit'])
+    ->name('adminsection.edit-apprenticeship');
 
 
 
