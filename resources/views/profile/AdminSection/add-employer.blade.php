@@ -104,7 +104,8 @@
         <header>
             <h1>Add Employer</h1>
         </header>
-        <div class="container">
+
+<div class="container">
     <h2>Add Employer</h2>
     <form action="{{ route('adminsection.store-employer') }}" method="POST">
     @csrf
@@ -134,7 +135,6 @@
     </div>
     <button type="submit">Add Employer</button>
 </form>
-
 </div>
       
 
