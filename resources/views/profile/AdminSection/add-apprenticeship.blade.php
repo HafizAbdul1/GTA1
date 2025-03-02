@@ -104,59 +104,69 @@
   
   <div class="main-content">
 
-  <h1 class="title">Add Apprenticeship</h1>
-    <form action="{{ route('adminsection.store-apprenticeship') }}" method="POST">
-        @csrf
-        
-        <label for="apprenticeship_name">Apprenticeship Name:</label>
-        <input type="text" id="apprenticeship_name" name="apprenticeship_name" required>
+  <header>
+      <h1>Add Apprenticeship</h1>
+  </header>
 
-        <label for="years">Duration (Years):</label>
-        <input type="number" id="years" name="years" min="1" required>
+  <form action="{{ route('adminsection.store-apprenticeship') }}" method="POST">
+    @csrf
 
-        <h2>Components</h2>
-        <table id="groupsTable">
-            <thead>
-                <tr>
-                    <th>Component Name</th>
-                    <th>Milestone</th>
-                    <th>Year</th>
-                    <th>Individual Weighting</th>
-                    <th>Progressive Weighting</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Rows will be added dynamically here -->
-            </tbody>
-        </table>
-        <button type="button" onclick="addGroupRow()">Add New Component</button>
+    <label for="apprenticeship_name">Apprenticeship Name:</label>
+    <input type="text" id="apprenticeship_name" name="apprenticeship_name" required>
 
-        <button type="submit">Create Apprenticeship</button>
-    </form>
+    <label for="years">Duration (Years):</label>
+    <input type="number" id="years" name="years" min="1" required>
 
-    <script>
-        function addGroupRow() {
-            let table = document.getElementById('groupsTable').getElementsByTagName('tbody')[0];
-            let newRow = table.insertRow();
-            
-            newRow.innerHTML = `
-                <td><input type="text" name="groups[group_name][]" required></td>
-                <td><input type="text" name="groups[milestone][]"></td>
-                <td><input type="number" name="groups[year][]" min="1"></td>
-                <td><input type="number" name="groups[individual_weighting][]" min="0"></td>
-                <td><input type="number" name="groups[progressive_weighting][]" min="0"></td>
-                <td><button type="button" onclick="removeGroupRow(this)">Remove</button></td>
-            `;
-        }
-        
-        function removeGroupRow(button) {
-            button.closest('tr').remove();
-        }
-    </script>
+    <h2>Components</h2>
+    <table id="groupsTable">
+      <thead>
+        <tr>
+          <th>Component Name</th>
+          <th>Milestone</th>
+          <th>Year</th>
+          <th>Individual Weighting</th>
+          <th>Progressive Weighting</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rows will be added dynamically here -->
+      </tbody>
+    </table>
 
-
+    <div class="button-container">
+      <button type="button" class="small-btn left-btn" onclick="addGroupRow()">Add New Component</button>
+      <button type="submit" class="small-btn right-btn">Create Apprenticeship</button>
+    </div>
+  </form>
 </div>
+
+<script>
+  function addGroupRow() {
+    let table = document.getElementById('groupsTable').getElementsByTagName('tbody')[0];
+    let newRow = table.insertRow();
+
+    newRow.innerHTML = `
+      <td><input type="text" name="groups[group_name][]" required></td>
+      <td><input type="text" name="groups[milestone][]"></td>
+      <td><input type="number" name="groups[year][]" min="1"></td>
+      <td><input type="number" name="groups[individual_weighting][]" min="0"></td>
+      <td><input type="number" name="groups[progressive_weighting][]" min="0"></td>
+      <td><button type="button" onclick="removeGroupRow(this)">Remove</button></td>
+    `;
+  }
+
+  function removeGroupRow(button) {
+    button.closest('tr').remove();
+  }
+</script>
+
+<style> 
+header {
+  margin-bottom: 50px;
+}
+
+</style>
 
 
 </body>
