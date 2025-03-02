@@ -102,10 +102,12 @@
 
 
  <div class="main-content">
+
 <header>
     <h1>{{ $apprenticeship->apprenticeship_name }}</h1>
+    <br>
+    <p><strong>Duration:</strong> {{ $apprenticeship->years }} year(s)</p>
 </header>
-    <p><strong>Duration:</strong> {{ $apprenticeship->years }} years</p>
 
     <h2>Groups under this Apprenticeship</h2>
     @if ($apprenticeship->groups->isEmpty())
