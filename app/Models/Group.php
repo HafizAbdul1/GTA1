@@ -17,4 +17,10 @@ class Group extends Model
         'individual_weighting',
         'progressive_weighting',
     ];
+
+    public function apprenticeship()
+    {
+        return $this->belongsTo(ViewApprenticeship::class, 'apprenticeship_id');
+    }
 }
+

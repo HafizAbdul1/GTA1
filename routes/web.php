@@ -15,7 +15,7 @@ use App\Http\Controllers\ApprenticeshipController;
 use App\Http\Controllers\ApprenticeController;
 use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\MentorController;
-
+use App\Http\Controllers\ViewApprenticeshipController;
 
 // Guest Routes - Not authenticated yet
 Route::middleware('guest')->group(function () {
@@ -167,6 +167,15 @@ Route::post('/admin/add-employer', [EmployerController::class, 'storeEmployer'])
 Route::get('/admin/add-mentor', [MentorController::class, 'createMentor'])->name('adminsection.add-mentor');
 
 Route::post('/admin/add-mentor', [MentorController::class, 'storeMentor'])->name('adminsection.store-mentor');
+
+
+
+
+
+Route::get('/apprenticeship/{id}', [ViewApprenticeshipController::class, 'show'])
+    ->name('apprenticeship.show');
+
+
 
 
 
