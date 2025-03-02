@@ -57,4 +57,12 @@ class ApprenticeshipController extends Controller
         $apprenticeships = Apprenticeship::with('groups')->get(); // Fetch apprenticeships with groups
         return view('profile.AdminSection.view-apprenticeship', compact('apprenticeships'));
     }
+
+    public function show($id)
+    {
+        $apprenticeship = Apprenticeship::findOrFail($id);
+        return view('profile.AdminSection.apprenticeship', compact('apprenticeship'));
+    }
+    
+
 }

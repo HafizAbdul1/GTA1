@@ -121,6 +121,7 @@
                     <td>{{ $apprenticeship->years }} years</td>
                     <td>{{ $apprenticeship->groups->count() }}</td>
                     <td>
+                        <a href="{{ route('adminsection.apprenticeship', $apprenticeship->id) }}" class="edit-btn">View</a>
                         <a href="{{ route('adminsection.edit-apprenticeship', $apprenticeship->id) }}" class="edit-btn">Edit</a>
                     </td>
                 </tr>

@@ -153,6 +153,9 @@ Route::get('/adminsection/view-apprenticeship', [ApprenticeshipController::class
     
 Route::get('/adminsection/edit-apprenticeship/{id}', [ApprenticeshipController::class, 'edit'])->name('adminsection.edit-apprenticeship');
 
+Route::get('/adminsection/apprenticeship/{id}', [ApprenticeshipController::class, 'show'])->name('adminsection.apprenticeship');
+
+
 
 Route::get('/admin/add-apprentice', [ApprenticeController::class, 'createApprentice'])->name('adminsection.add-apprentice');
 
@@ -176,6 +179,7 @@ Route::get('/apprenticeship/{id}', [ViewApprenticeshipController::class, 'show']
     ->name('apprenticeship.show');
 
 
+    Route::get('/apprenticeship/{id}', [ApprenticeshipController::class, 'show'])->name('apprenticeship.show');
 
 
 
