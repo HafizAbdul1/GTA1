@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApprenticeshipController;
 use App\Http\Controllers\ApprenticeController;
 use App\Http\Controllers\EmployerController;
-use App\Http\Controllers\MentorController;
+use App\Http\Controllers\trainerController;
 use App\Http\Controllers\ViewApprenticeshipController;
 
 // Guest Routes - Not authenticated yet
@@ -130,13 +130,13 @@ Route::get('/adminsection/view-employer', function () {
     return view('profile.AdminSection.view-employer'); 
 })->name('adminsection.view-employer');
 
-Route::get('/adminsection/add-mentor', function () {
-    return view('profile.AdminSection.add-mentor'); 
-})->name('adminsection.add-mentor');
+Route::get('/adminsection/add-trainer', function () {
+    return view('profile.AdminSection.add-trainer'); 
+})->name('adminsection.add-trainer');
 
-Route::get('/adminsection/view-mentor', function () {
-    return view('profile.AdminSection.view-mentor'); 
-})->name('adminsection.view-mentor');
+Route::get('/adminsection/view-trainer', function () {
+    return view('profile.AdminSection.view-trainer'); 
+})->name('adminsection.view-trainer');
 
 Route::get('/adminsection/reports', function () {
     return view('profile.AdminSection.reports'); 
@@ -167,9 +167,9 @@ Route::get('/admin/add-employer', [EmployerController::class, 'createEmployer'])
 Route::post('/admin/add-employer', [EmployerController::class, 'storeEmployer'])->name('adminsection.store-employer');
 
 
-Route::get('/admin/add-mentor', [MentorController::class, 'createMentor'])->name('adminsection.add-mentor');
+Route::get('/admin/add-trainer', [trainerController::class, 'createTrainer'])->name('adminsection.add-trainer');
 
-Route::post('/admin/add-mentor', [MentorController::class, 'storeMentor'])->name('adminsection.store-mentor');
+Route::post('/admin/add-trainer', [trainerController::class, 'storeTrainer'])->name('adminsection.store-trainer');
 
 
 
@@ -183,7 +183,7 @@ Route::get('/apprenticeship/{id}', [ViewApprenticeshipController::class, 'show']
 
 
 
-// -------------------------------------------- Mentors Section Routes (visible after login) -----------------------------------
-Route::get('/mentorsection/mentor', function () {
-    return view('profile.MentorSection.Mentor'); 
-})->name('mentorsection.mentor');
+// -------------------------------------------- trainers Section Routes (visible after login) -----------------------------------
+Route::get('/Trainersection/trainer', function () {
+    return view('profile.TrainerSection.trainer'); 
+})->name('trainersection.trainer');
