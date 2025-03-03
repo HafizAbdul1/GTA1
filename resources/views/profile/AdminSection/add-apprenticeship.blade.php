@@ -64,13 +64,13 @@
       <li>
         <button onclick=toggleSubMenu(this) class="dropdown-btn">
         <img src="../../public/images/icons/tutor.png" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-240v-32q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v32q0 33-23.5 56.5T720-160H240q-33 0-56.5-23.5T160-240Zm80 0h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z">
-          <span>Mentors</span>
+          <span>Trainers</span>
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/></svg>
         </button>
         <ul class="sub-menu">
           <div>
-            <li><a href="{{ route('adminsection.view-mentor') }}">View Mentors</a></li>
-            <li><a href="{{ route('adminsection.add-mentor') }}">Add Mentor</a></li>
+            <li><a href="{{ route('adminsection.view-trainer') }}">View Trainers</a></li>
+            <li><a href="{{ route('adminsection.add-trainer') }}">Add Trainer</a></li>
           </div>
         </ul>
       </li>
@@ -104,59 +104,69 @@
   
   <div class="main-content">
 
-  <h1 class="title">Add Apprenticeship</h1>
-    <form action="{{ route('adminsection.store-apprenticeship') }}" method="POST">
-        @csrf
-        
-        <label for="apprenticeship_name">Apprenticeship Name:</label>
-        <input type="text" id="apprenticeship_name" name="apprenticeship_name" required>
+  <header>
+      <h1>Add Apprenticeship</h1>
+  </header>
 
-        <label for="years">Duration (Years):</label>
-        <input type="number" id="years" name="years" min="1" required>
+  <form action="{{ route('adminsection.store-apprenticeship') }}" method="POST">
+    @csrf
 
-        <h2>Components</h2>
-        <table id="groupsTable">
-            <thead>
-                <tr>
-                    <th>Component Name</th>
-                    <th>Milestone</th>
-                    <th>Year</th>
-                    <th>Individual Weighting</th>
-                    <th>Progressive Weighting</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Rows will be added dynamically here -->
-            </tbody>
-        </table>
-        <button type="button" onclick="addGroupRow()">Add New Component</button>
+    <label for="apprenticeship_name">Apprenticeship Name:</label>
+    <input type="text" id="apprenticeship_name" name="apprenticeship_name" required>
 
-        <button type="submit">Create Apprenticeship</button>
-    </form>
+    <label for="years">Duration (Years):</label>
+    <input type="number" id="years" name="years" min="1" required>
 
-    <script>
-        function addGroupRow() {
-            let table = document.getElementById('groupsTable').getElementsByTagName('tbody')[0];
-            let newRow = table.insertRow();
-            
-            newRow.innerHTML = `
-                <td><input type="text" name="groups[group_name][]" required></td>
-                <td><input type="text" name="groups[milestone][]"></td>
-                <td><input type="number" name="groups[year][]" min="1"></td>
-                <td><input type="number" name="groups[individual_weighting][]" min="0"></td>
-                <td><input type="number" name="groups[progressive_weighting][]" min="0"></td>
-                <td><button type="button" onclick="removeGroupRow(this)">Remove</button></td>
-            `;
-        }
-        
-        function removeGroupRow(button) {
-            button.closest('tr').remove();
-        }
-    </script>
+    <h2>Components</h2>
+    <table id="groupsTable">
+      <thead>
+        <tr>
+          <th>Component Name</th>
+          <th>Milestone</th>
+          <th>Year</th>
+          <th>Individual Weighting</th>
+          <th>Progressive Weighting</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rows will be added dynamically here -->
+      </tbody>
+    </table>
 
-
+    <div class="button-container">
+      <button type="button" class="small-btn left-btn" onclick="addGroupRow()">Add New Component</button>
+      <button type="submit" class="small-btn right-btn">Create Apprenticeship</button>
+    </div>
+  </form>
 </div>
+
+<script>
+  function addGroupRow() {
+    let table = document.getElementById('groupsTable').getElementsByTagName('tbody')[0];
+    let newRow = table.insertRow();
+
+    newRow.innerHTML = `
+      <td><input type="text" name="groups[group_name][]" required></td>
+      <td><input type="text" name="groups[milestone][]"></td>
+      <td><input type="number" name="groups[year][]" min="1"></td>
+      <td><input type="number" name="groups[individual_weighting][]" min="0"></td>
+      <td><input type="number" name="groups[progressive_weighting][]" min="0"></td>
+      <td><button type="button" onclick="removeGroupRow(this)">Remove</button></td>
+    `;
+  }
+
+  function removeGroupRow(button) {
+    button.closest('tr').remove();
+  }
+</script>
+
+<style> 
+header {
+  margin-bottom: 50px;
+}
+
+</style>
 
 
 </body>

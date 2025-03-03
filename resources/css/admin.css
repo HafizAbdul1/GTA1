@@ -349,3 +349,32 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.small-btn {
+  font-size: 12px;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.left-btn {
+  background-color: #28a745;
+}
+
+.left-btn:hover {
+  background-color: #218838;
+}
+
+.right-btn {
+  background-color: #007bff;
+}
+
+.right-btn:hover {
+  background-color: #0056b3;
+}
