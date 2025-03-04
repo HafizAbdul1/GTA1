@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Apprenticeship</title>
-    @vite(['resources/css/admin.css']) 
+    @vite(['resources/css/apprenticeship.css'])
+    @vite(['resources/css/sidemenu.css'])  
     @vite(['resources/js/sidemenu.js']) 
 </head>
 <body>
 
 <nav id="sidebar">
+
     <ul>
       <li>
         <button onclick=toggleSidebar() id="toggle-btn">
@@ -97,77 +99,144 @@
     </li>
     </ul>
     <img src="../../public/images/LogoGta.png" alt="coding2go logo" class="logo">
+
   </nav>
 
 
 
-  
-  <div class="main-content">
+<!-- ================================================= Add Apprenticeship Form ================================================= -->
 
-  <header>
+
+
+<div class="main-content">
+    <header>
       <h1>Add Apprenticeship</h1>
-  </header>
+    </header>
 
-  <form action="{{ route('adminsection.store-apprenticeship') }}" method="POST">
-    @csrf
+    <form action="{{ route('adminsection.store-apprenticeship') }}" method="POST">
+      @csrf
 
-    <label for="apprenticeship_name">Apprenticeship Name:</label>
-    <input type="text" id="apprenticeship_name" name="apprenticeship_name" required>
+      <label for="apprenticeship_name">Apprenticeship Name:</label>
+      <input type="text" id="apprenticeship_name" name="apprenticeship_name" required>
 
-    <label for="years">Duration (Years):</label>
-    <input type="number" id="years" name="years" min="1" required>
+      <label for="years">Duration (Years):</label>
+      <input type="number" id="years" name="years" min="1" required>
 
-    <h2>Components</h2>
-    <table id="groupsTable">
-      <thead>
-        <tr>
-          <th>Component Name</th>
-          <th>Milestone</th>
-          <th>Year</th>
-          <th>Individual Weighting</th>
-          <th>Progressive Weighting</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Rows will be added dynamically here -->
-      </tbody>
-    </table>
+      <h2>Sections</h2>
+      <table id="sectionsTable">
+        <thead>
+          <tr>
+            <th>Section Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rows for sections will be added dynamically here -->
+        </tbody>
+      </table>
 
-    <div class="button-container">
-      <button type="button" class="small-btn left-btn" onclick="addGroupRow()">Add New Component</button>
-      <button type="submit" class="small-btn right-btn">Create Apprenticeship</button>
-    </div>
-  </form>
-</div>
+      <div class="button-container">
+        <button type="button" class="small-btn left-btn" onclick="addSectionRow()">Add New Section</button>
+        <button type="submit" class="small-btn right-btn">Create Apprenticeship</button>
+      </div>
+    </form>
+  </div>
 
-<script>
-  function addGroupRow() {
-    let table = document.getElementById('groupsTable').getElementsByTagName('tbody')[0];
-    let newRow = table.insertRow();
+  <script>
+    // Function to add a new section
+    function addSectionRow() {
+      let table = document.getElementById('sectionsTable').getElementsByTagName('tbody')[0];
+      let newRow = table.insertRow();
+      
+      newRow.innerHTML = `
+        <td>
+          <input type="text" name="sections[section_name][]" required>
+          <table class="groupsTable">
+            <thead>
+              <tr>
+                <th>Group Name</th>
+                <th>Milestone</th>
+                <th>Year</th>
+                <th>Individual Weighting</th>
+                <th>Progressive Weighting</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Rows for groups under this section will be added dynamically here -->
+            </tbody>
+          </table>
+          <button type="button" class="small-btn add" onclick="addGroupRow(this)">Add New Group</button>
+        </td>
+        <td>
+          <button type="button" class="small-btn remove" onclick="removeSectionRow(this)">Remove Section</button>
+        </td>
+      `;
+    }
 
-    newRow.innerHTML = `
-      <td><input type="text" name="groups[group_name][]" required></td>
-      <td><input type="text" name="groups[milestone][]"></td>
-      <td><input type="number" name="groups[year][]" min="1"></td>
-      <td><input type="number" name="groups[individual_weighting][]" min="0"></td>
-      <td><input type="number" name="groups[progressive_weighting][]" min="0"></td>
-      <td><button type="button" onclick="removeGroupRow(this)">Remove</button></td>
-    `;
-  }
+    // Function to remove a section
+    function removeSectionRow(button) {
+      button.closest('tr').remove();
+    }
 
-  function removeGroupRow(button) {
-    button.closest('tr').remove();
-  }
-</script>
+    // Function to add a new group under a section
+    function addGroupRow(sectionButton) {
+      let sectionRow = sectionButton.closest('tr');
+      let groupTable = sectionRow.querySelector('.groupsTable tbody');
+      let newGroupRow = groupTable.insertRow();
 
-<style> 
-header {
-  margin-bottom: 50px;
-}
+      newGroupRow.innerHTML = `
+        <td><input type="text" name="groups[group_name][]" required></td>
+        <td><input type="text" name="groups[milestone][]"></td>
+        <td><input type="number" name="groups[year][]" min="1"></td>
+        <td><input type="number" name="groups[individual_weighting][]" min="0"></td>
+        <td><input type="number" name="groups[progressive_weighting][]" min="0"></td>
+        <td class="actions">
+          <button type="button" class="remove" onclick="removeGroupRow(this)">Remove Group</button>
+          <button type="button" class="add" onclick="addTaskRow(this)">Add New Task</button>
+        </td>
+        <td>
+          <table class="tasksTable">
+            <thead>
+              <tr>
+                <th>Task Name</th>
+                <th>Description</th>
+                <th>Due Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Rows for tasks under this group will be added dynamically here -->
+            </tbody>
+          </table>
+        </td>
+      `;
+    }
 
-</style>
+    // Function to remove a group from a section
+    function removeGroupRow(button) {
+      button.closest('tr').remove();
+    }
 
+    // Function to add a new task under a group
+    function addTaskRow(groupButton) {
+      let groupRow = groupButton.closest('tr');
+      let taskTable = groupRow.querySelector('.tasksTable tbody');
+      let newTaskRow = taskTable.insertRow();
+
+      newTaskRow.innerHTML = `
+        <td><input type="text" name="tasks[task_name][]" required></td>
+        <td><input type="text" name="tasks[description][]"></td>
+        <td><input type="date" name="tasks[due_date][]"></td>
+        <td><button type="button" class="remove" onclick="removeTaskRow(this)">Remove Task</button></td>
+      `;
+    }
+
+    // Function to remove a task from a group
+    function removeTaskRow(button) {
+      button.closest('tr').remove();
+    }
+  </script>
 
 </body>
 </html>

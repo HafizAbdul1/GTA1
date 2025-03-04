@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    background-color: #f4f4f4;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 0;
+    padding: 20px;
+    width: 100%;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.main-content.active {
+    margin-left: 250px;
+}
+
+header {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+
+
+
+
+
+
+
+
+
+/* General Styles */
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .small-btn {
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+  }
+  
+  .small-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .button-container button[type="button"] {
+    background-color: #28a745;
+  }
+  
+  .button-container button[type="button"]:hover {
+    background-color: #218838;
+  }
+  
+  .table-wrapper {
+    margin-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 14px;
+  }
+  
+  th {
+    background-color: #f7f7f7;
+  }
+  
+  .tasksTable td input {
+    width: 95%;
+  }
+  
+  .tasksTable {
+    margin-top: 10px;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .actions button {
+    padding: 6px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .actions button.remove {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .actions button.add {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .actions button.remove:hover {
+    background-color: #c82333;
+  }
+  
+  .actions button.add:hover {
+    background-color: #0056b3;
+  }
+  
