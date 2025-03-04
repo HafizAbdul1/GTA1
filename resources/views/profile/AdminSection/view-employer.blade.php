@@ -116,12 +116,19 @@
                 <tr>
                     <td>John Doe</td>
                     <td>john@doe.com</td>
-                    <td>edit</td>
+                    <td>
+                      <button class="btn-view">View</button>
+                      <button class="btn-edit">Edit</button>
+                    </td>
+                    
                 </tr>
                 <tr>
                     <td>Jane Smith</td>
                     <td>jane@smith.com</td>
-                    <td>edit</td>
+                    <td>
+                      <button class="btn-view">View</button>
+                      <button class="btn-edit">Edit</button>
+                    </td>
                 </tr>
             </table>
         </section>
