@@ -143,99 +143,120 @@
   </div>
 
   <script>
-    // Function to add a new section
-    function addSectionRow() {
-      let table = document.getElementById('sectionsTable').getElementsByTagName('tbody')[0];
-      let newRow = table.insertRow();
-      
-      newRow.innerHTML = `
-        <td>
-          <input type="text" name="sections[section_name][]" required>
-          <table class="groupsTable">
-            <thead>
-              <tr>
-                <th>Group Name</th>
-                <th>Milestone</th>
-                <th>Year</th>
-                <th>Individual Weighting</th>
-                <th>Progressive Weighting</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Rows for groups under this section will be added dynamically here -->
-            </tbody>
-          </table>
-          <button type="button" class="small-btn add" onclick="addGroupRow(this)">Add New Group</button>
-        </td>
-        <td>
-          <button type="button" class="small-btn remove" onclick="removeSectionRow(this)">Remove Section</button>
-        </td>
-      `;
-    }
+// Function to add a new section
+function addSectionRow() {
+  let table = document.getElementById('sectionsTable').getElementsByTagName('tbody')[0];
+  let newRow = table.insertRow();
 
-    // Function to remove a section
-    function removeSectionRow(button) {
-      button.closest('tr').remove();
-    }
+  newRow.innerHTML = `
+    <td>
+      <input type="text" name="sections[section_name][]" required>
+      <table class="groupsTable" style="display: none;">
+        <thead>
+          <tr>
+            <th>Group Name</th>
+            <th>Milestone</th>
+            <th>Year</th>
+            <th>Individual Weighting</th>
+            <th>Progressive Weighting</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Groups will be added here -->
+        </tbody>
+      </table>
+      <button type="button" class="small-btn add" onclick="addGroupRow(this)">Add New Group</button>
+    </td>
+    <td>
+      <button type="button" class="small-btn remove" onclick="removeSectionRow(this)">Remove Section</button>
+    </td>
+  `;
+}
 
-    // Function to add a new group under a section
-    function addGroupRow(sectionButton) {
-      let sectionRow = sectionButton.closest('tr');
-      let groupTable = sectionRow.querySelector('.groupsTable tbody');
-      let newGroupRow = groupTable.insertRow();
+// Function to remove a section
+function removeSectionRow(button) {
+  button.closest('tr').remove();
+}
 
-      newGroupRow.innerHTML = `
-        <td><input type="text" name="groups[group_name][]" required></td>
-        <td><input type="text" name="groups[milestone][]"></td>
-        <td><input type="number" name="groups[year][]" min="1"></td>
-        <td><input type="number" name="groups[individual_weighting][]" min="0"></td>
-        <td><input type="number" name="groups[progressive_weighting][]" min="0"></td>
-        <td class="actions">
-          <button type="button" class="remove" onclick="removeGroupRow(this)">Remove Group</button>
-          <button type="button" class="add" onclick="addTaskRow(this)">Add New Task</button>
-        </td>
-        <td>
-          <table class="tasksTable">
-            <thead>
-              <tr>
-                <th>Task Name</th>
-                <th>Description</th>
-                <th>Due Date</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Rows for tasks under this group will be added dynamically here -->
-            </tbody>
-          </table>
-        </td>
-      `;
-    }
+// Function to add a new group under a section
+function addGroupRow(sectionButton) {
+  let sectionRow = sectionButton.closest('tr');
+  let groupTable = sectionRow.querySelector('.groupsTable');
+  let groupTableBody = groupTable.querySelector('tbody');
 
-    // Function to remove a group from a section
-    function removeGroupRow(button) {
-      button.closest('tr').remove();
-    }
+  // Show the group header when adding the first group
+  groupTable.style.display = "table";
 
-    // Function to add a new task under a group
-    function addTaskRow(groupButton) {
-      let groupRow = groupButton.closest('tr');
-      let taskTable = groupRow.querySelector('.tasksTable tbody');
-      let newTaskRow = taskTable.insertRow();
+  let newGroupRow = groupTableBody.insertRow();
+  newGroupRow.innerHTML = `
+    <td><input type="text" name="groups[group_name][]" required></td>
+    <td><input type="text" name="groups[milestone][]"></td>
+    <td><input type="number" name="groups[year][]" min="1"></td>
+    <td><input type="number" name="groups[individual_weighting][]" min="0"></td>
+    <td><input type="number" name="groups[progressive_weighting][]" min="0"></td>
+    <td class="actions">
+      <button type="button" class="remove" onclick="removeGroupRow(this)">Remove Group</button>
+      <button type="button" class="add" onclick="addTaskRow(this)">Add New Task</button>
+    </td>
+    <td>
+      <table class="tasksTable" style="display: none;">
+        <thead>
+          <tr>
+            <th>Task Name</th>
+            <th>Description</th>
+            <th>Due Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Tasks will be added here -->
+        </tbody>
+      </table>
+    </td>
+  `;
+}
 
-      newTaskRow.innerHTML = `
-        <td><input type="text" name="tasks[task_name][]" required></td>
-        <td><input type="text" name="tasks[description][]"></td>
-        <td><input type="date" name="tasks[due_date][]"></td>
-        <td><button type="button" class="remove" onclick="removeTaskRow(this)">Remove Task</button></td>
-      `;
-    }
+// Function to remove a group
+function removeGroupRow(button) {
+  let sectionRow = button.closest('tr').closest('tbody').closest('.groupsTable');
+  button.closest('tr').remove();
 
-    // Function to remove a task from a group
-    function removeTaskRow(button) {
-      button.closest('tr').remove();
-    }
+  // Hide the group table if no groups are left
+  if (sectionRow.querySelector('tbody').childElementCount === 0) {
+    sectionRow.style.display = "none";
+  }
+}
+
+// Function to add a new task under a group
+function addTaskRow(groupButton) {
+  let groupRow = groupButton.closest('tr');
+  let taskTable = groupRow.querySelector('.tasksTable');
+  let taskTableBody = taskTable.querySelector('tbody');
+
+  // Show the task header when adding the first task
+  taskTable.style.display = "table";
+
+  let newTaskRow = taskTableBody.insertRow();
+  newTaskRow.innerHTML = `
+    <td><input type="text" name="tasks[task_name][]" required></td>
+    <td><input type="text" name="tasks[description][]"></td>
+    <td><input type="date" name="tasks[due_date][]"></td>
+    <td><button type="button" class="remove" onclick="removeTaskRow(this)">Remove Task</button></td>
+  `;
+}
+
+// Function to remove a task
+function removeTaskRow(button) {
+  let groupRow = button.closest('tr').closest('tbody').closest('.tasksTable');
+  button.closest('tr').remove();
+
+  // Hide the task table if no tasks are left
+  if (groupRow.querySelector('tbody').childElementCount === 0) {
+    groupRow.style.display = "none";
+  }
+}
+
   </script>
 
 </body>
