@@ -168,9 +168,7 @@ function addSectionRow() {
       </table>
       <button type="button" class="small-btn add" onclick="addGroupRow(this)">Add New Group</button>
     </td>
-    <td>
-      <button type="button" class="small-btn remove" onclick="removeSectionRow(this)">Remove Section</button>
-    </td>
+    <td><button type="button" class="small-btn remove" onclick="removeSectionRow(this)">Remove Section</button></td>
   `;
 }
 
@@ -198,10 +196,17 @@ function addGroupRow(sectionButton) {
     <td class="actions">
       <button type="button" class="remove" onclick="removeGroupRow(this)">Remove Group</button>
       <button type="button" class="add" onclick="addTaskRow(this)">Add New Task</button>
+      <button type="button" class="toggle-tasks" onclick="toggleTasks(this)">▼</button>
     </td>
-    <td>
-      <table class="tasksTable" style="display: none;">
-        <thead>
+  `;
+
+  let taskDropdown = document.createElement("tr");
+  taskDropdown.classList.add("task-dropdown");
+  taskDropdown.style.display = "none"; // Initially hidden
+  taskDropdown.innerHTML = `
+    <td colspan="6">
+      <table class="tasksTable">
+        <thead style="display: none;">
           <tr>
             <th>Task Name</th>
             <th>Description</th>
@@ -215,27 +220,31 @@ function addGroupRow(sectionButton) {
       </table>
     </td>
   `;
+
+  groupTableBody.appendChild(taskDropdown);
 }
 
 // Function to remove a group
 function removeGroupRow(button) {
-  let sectionRow = button.closest('tr').closest('tbody').closest('.groupsTable');
-  button.closest('tr').remove();
+  let groupRow = button.closest('tr');
+  let taskDropdown = groupRow.nextElementSibling; // The tasks dropdown row
 
-  // Hide the group table if no groups are left
-  if (sectionRow.querySelector('tbody').childElementCount === 0) {
-    sectionRow.style.display = "none";
+  groupRow.remove();
+  if (taskDropdown && taskDropdown.classList.contains("task-dropdown")) {
+    taskDropdown.remove();
   }
 }
 
 // Function to add a new task under a group
 function addTaskRow(groupButton) {
   let groupRow = groupButton.closest('tr');
-  let taskTable = groupRow.querySelector('.tasksTable');
+  let taskDropdown = groupRow.nextElementSibling;
+  let taskTable = taskDropdown.querySelector('.tasksTable');
   let taskTableBody = taskTable.querySelector('tbody');
 
-  // Show the task header when adding the first task
-  taskTable.style.display = "table";
+  // Show task header when first task is added
+  taskTable.querySelector("thead").style.display = "table-header-group";
+  taskDropdown.style.display = "table-row"; // Expand dropdown
 
   let newTaskRow = taskTableBody.insertRow();
   newTaskRow.innerHTML = `
@@ -248,14 +257,31 @@ function addTaskRow(groupButton) {
 
 // Function to remove a task
 function removeTaskRow(button) {
-  let groupRow = button.closest('tr').closest('tbody').closest('.tasksTable');
+  let taskTable = button.closest('tbody');
   button.closest('tr').remove();
 
-  // Hide the task table if no tasks are left
-  if (groupRow.querySelector('tbody').childElementCount === 0) {
-    groupRow.style.display = "none";
+  // Hide task table if no tasks left
+  if (taskTable.childElementCount === 0) {
+    let taskDropdown = taskTable.closest('.task-dropdown');
+    taskDropdown.querySelector("thead").style.display = "none";
+    taskDropdown.style.display = "none";
   }
 }
+
+// Function to toggle task dropdown
+function toggleTasks(button) {
+  let groupRow = button.closest('tr');
+  let taskDropdown = groupRow.nextElementSibling;
+
+  if (taskDropdown.style.display === "none") {
+    taskDropdown.style.display = "table-row";
+    button.textContent = "▲"; // Collapse icon
+  } else {
+    taskDropdown.style.display = "none";
+    button.textContent = "▼"; // Expand icon
+  }
+}
+
 
   </script>
 
