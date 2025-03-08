@@ -8,12 +8,9 @@ use Illuminate\Http\Request;
 
 class ApprenticeshipController extends Controller
 {
-    /**
-     * Store a new apprenticeship with its groups.
-     */
+    
     public function store(Request $request)
     {
-        // Validate input
         $request->validate([
             'apprenticeship_name' => 'required|string|max:255',
             'years' => 'required|integer|min:1',
@@ -25,7 +22,6 @@ class ApprenticeshipController extends Controller
             'groups.progressive_weighting.*' => 'nullable|integer|min:0',
         ]);
 
-        // Create apprenticeship
         $apprenticeship = Apprenticeship::create([
             'apprenticeship_name' => $request->apprenticeship_name,
             'years' => $request->years,

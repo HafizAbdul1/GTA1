@@ -161,6 +161,8 @@ Route::get('/admin/add-apprentice', [ApprenticeController::class, 'createApprent
 
 Route::post('/admin/add-apprentice', [ApprenticeController::class, 'storeApprentice'])->name('adminsection.store-apprentice');
 
+Route::get('/admin/view-apprentice', [ApprenticeController::class, 'viewApprentice'])->name('adminsection.view-apprentice');
+
 
 Route::get('/admin/add-employer', [EmployerController::class, 'createEmployer'])->name('adminsection.add-employer');
 

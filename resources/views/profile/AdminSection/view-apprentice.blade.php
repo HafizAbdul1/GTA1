@@ -99,7 +99,7 @@
     <img src="../../public/images/LogoGta.png" alt="coding2go logo" class="logo">
   </nav>
 
-  <div class="main-content">
+  <div class="main-content"> 
     <div class="content">
         <header>
             <h1>View Apprentices</h1>
@@ -107,23 +107,39 @@
 
         <section class="recent">
             <h2>Apprentices</h2>
-            <table>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>action</th>
-                </tr>
-                <tr>
-                    <td>John Doe</td>
-                    <td>john@doe.com</td>
-                    <td>edit</td>
-                </tr>
-                <tr>
-                    <td>Jane Smith</td>
-                    <td>jane@smith.com</td>
-                    <td>edit</td>
-                </tr>
-            </table>
+
+        @section('content')
+        <div class="container-2">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>First Name</th>
+                        <th>Middle Name</th>
+                        <th>Second Name</th>
+                        <th>Email</th>
+
+
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($apprentices as $apprentice)
+                    <tr>
+                        <td>{{ $apprentice->id }}</td>
+                        <td>{{ $apprentice->username }}</td>
+                        <td>{{ $apprentice->first_name }}</td>
+                        <td>{{ $apprentice->middle_name }}</td>
+                        <td>{{ $apprentice->last_name }}</td>
+                        <td>{{ $apprentice->email }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+    </table>
+</div>
+
         </section>
     </div>
 </div>
