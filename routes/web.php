@@ -16,6 +16,7 @@ use App\Http\Controllers\ApprenticeController;
 use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\trainerController;
 use App\Http\Controllers\ViewApprenticeshipController;
+use App\Http\Controllers\ViewEmpController; // Ensure correct casing as per your file name
 
 // Guest Routes - Not authenticated yet
 Route::middleware('guest')->group(function () {
@@ -189,3 +190,11 @@ Route::get('/apprenticeship/{id}', [ViewApprenticeshipController::class, 'show']
 Route::get('/Trainersection/trainer', function () {
     return view('profile.TrainerSection.trainer'); 
 })->name('trainersection.trainer');
+
+
+
+Route::get('/adminsection/view-employer', [ViewEmpController::class, 'index'])
+    ->name('adminsection.view-employer');
+
+Route::delete('/adminsection/delete-employer/{id}', [ViewEmpController::class, 'destroy'])
+    ->name('adminsection.delete-employer');

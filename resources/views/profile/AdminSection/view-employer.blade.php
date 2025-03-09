@@ -108,29 +108,34 @@
         <section class="recent">
             <h2>Employers</h2>
             <table>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>action</th>
-                </tr>
-                <tr>
-                    <td>John Doe</td>
-                    <td>john@doe.com</td>
-                    <td>
-                      <button class="btn-view">View</button>
-                      <button class="btn-edit">Edit</button>
-                    </td>
-                    
-                </tr>
-                <tr>
-                    <td>Jane Smith</td>
-                    <td>jane@smith.com</td>
-                    <td>
-                      <button class="btn-view">View</button>
-                      <button class="btn-edit">Edit</button>
-                    </td>
-                </tr>
-            </table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($employers as $employer)
+        <tr>
+            <td>{{ $employer->first_name }} {{ $employer->middle_name ?? '' }} {{ $employer->last_name }}</td>
+            <td>{{ $employer->email }}</td>
+            <td>
+                <form action="{{ route('adminsection.delete-employer', $employer->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn-delete" onclick="return confirm('Are you sure you want to delete this employer?')">
+                        Delete
+                    </button>
+                </form>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+
+
+           
         </section>
     </div>
 </div>
