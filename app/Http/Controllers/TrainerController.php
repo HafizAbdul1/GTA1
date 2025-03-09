@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Http\Controllers\Controller; // Now correctly placed after the namespace
 
-class EmployerController extends Controller
+class TrainerController extends Controller
 {
     public function store(Request $request)
     {
@@ -27,9 +27,9 @@ class EmployerController extends Controller
             'username' => $request->input('username'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')), // Hash the password
-            'role' => 'employer', // Default role
+            'role' => 'trainer', // Default role
         ]);
 
-        return redirect()->back()->with('success', 'Employer added successfully.');
+        return redirect()->back()->with('success', 'Trainer added successfully.');
     }
 }

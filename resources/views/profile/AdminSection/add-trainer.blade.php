@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Mentor</title>
+    <title>Add Trainer</title>
     @vite(['resources/css/admin.css']) 
     @vite(['resources/js/sidemenu.js']) 
 </head>
@@ -16,7 +16,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m313-480 155 156q11 11 11.5 27.5T468-268q-11 11-28 11t-28-11L228-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T468-692q11 11 11 28t-11 28L313-480Zm264 0 155 156q11 11 11.5 27.5T732-268q-11 11-28 11t-28-11L492-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T732-692q11 11 11 28t-11 28L577-480Z"/></svg>
         </button>
       </li>
-      <li>
+      <li class="active">
         <a href="{{ route('adminsection.admin') }}">
           <img src="../../public/images/icons/home.png" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-240v-32q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v32q0 33-23.5 56.5T720-160H240q-33 0-56.5-23.5T160-240Zm80 0h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z">
           <span>Dashboard</span>
@@ -30,8 +30,8 @@
         </button>
         <ul class="sub-menu">
           <div>
-            <li><a href="{{ route('adminsection.view-apprenticeship') }}">View Apprenticeships</a></li>
             <li><a href="{{ route('adminsection.add-apprenticeship') }}">Add Apprenticeship</a></li>
+            <li><a href="{{ route('adminsection.view-apprenticeship') }}">View Apprenticeships</a></li>
           </div>
         </ul>
       </li>
@@ -43,8 +43,8 @@
         </button>
         <ul class="sub-menu">
           <div>
-            <li><a href="{{ route('adminsection.view-apprentice') }}">View Apprentices</a></li>
             <li><a href="{{ route('adminsection.add-apprentice') }}">Add Apprentice</a></li>
+            <li><a href="{{ route('adminsection.view-apprentice') }}">View Apprentices</a></li>
           </div>
         </ul>
       </li>
@@ -56,21 +56,26 @@
         </button>
         <ul class="sub-menu">
           <div>
-            <li><a href="{{ route('adminsection.view-employer') }}">View Employers</a></li>
             <li><a href="{{ route('adminsection.add-employer') }}">Add Employer</a></li>
+            <li><a href="{{ route('adminsection.view-employer') }}">View Employers</a></li>
           </div>
         </ul>
       </li>
       <li>
         <button onclick=toggleSubMenu(this) class="dropdown-btn">
         <img src="../../public/images/icons/tutor.png" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-240v-32q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v32q0 33-23.5 56.5T720-160H240q-33 0-56.5-23.5T160-240Zm80 0h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z">
-          <span>Mentors</span>
+          <span>Trainers</span>
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/></svg>
         </button>
         <ul class="sub-menu">
           <div>
-            <li><a href="{{ route('adminsection.view-mentor') }}">View Mentors</a></li>
-            <li class="active"><a href="{{ route('adminsection.add-mentor') }}">Add Mentor</a></li>
+<<<<<<< HEAD
+            <li><a href="{{ route('adminsection.add-trainer') }}">Add Trainer</a></li>
+            <li><a href="{{ route('adminsection.view-trainer') }}">View Trainers</a></li>
+=======
+            <li><a href="{{ route('adminsection.view-trainer') }}">View Trainers</a></li>
+            <li class="active"><a href="{{ route('adminsection.add-trainer') }}">Add Trainer</a></li>
+>>>>>>> bff182545d6495de940fd278528d581bc255b4af
           </div>
         </ul>
       </li>
@@ -102,40 +107,60 @@
   <div class="main-content">
     <div class="content">
         <header>
-            <h1>Add Mentor</h1>
+            <h1>Add Trainer</h1>
         </header>
-        <div class="container">
-    <h2>Add Mentor</h2>
-    <form action="{{ route('adminsection.store-mentor') }}" method="POST">
-    @csrf
-    <div>
-        <label for="first_name">First Name:</label>
-        <input type="text" id="first_name" name="first_name" required>
-    </div>
-    <div>
-        <label for="middle_name">Middle Name (Optional):</label>
-        <input type="text" id="middle_name" name="middle_name">
-    </div>
-    <div>
-        <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" name="last_name" required>
-    </div>
-    <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-    </div>
-    <div>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-    </div>
-    <div>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-    </div>
-    <button type="submit">Add Mentor</button>
-</form>
 
+        <div class="container">
+            <h2>Add Trainer</h2>
+
+            <!-- Success Banner -->
+            @if(session('success'))
+                <div id="success-banner" style="background-color: #4CAF50; color: white; padding: 10px; text-align: center; border-radius: 5px; margin-bottom: 15px;">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            <form action="{{ route('adminsection.store-trainer') }}" method="POST">
+                @csrf
+                <div>
+                    <label for="first_name">First Name:</label>
+                    <input type="text" id="first_name" name="first_name" required>
+                </div>
+                <div>
+                    <label for="middle_name">Middle Name (Optional):</label>
+                    <input type="text" id="middle_name" name="middle_name">
+                </div>
+                <div>
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" id="last_name" name="last_name" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Add Trainer</button>
+            </form>
+        </div>
+    </div>
 </div>
+
+<!-- JavaScript to auto-hide the success banner -->
+<script>
+    setTimeout(function() {
+        var successBanner = document.getElementById('success-banner');
+        if (successBanner) {
+            successBanner.style.display = 'none';
+        }
+    }, 3000); // Hide after 3 seconds
+</script>
       
 
 </body>

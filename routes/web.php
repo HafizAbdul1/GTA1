@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApprenticeshipController;
 use App\Http\Controllers\ApprenticeController;
 use App\Http\Controllers\EmployerController;
-use App\Http\Controllers\trainerController;
+use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\ViewApprenticeshipController;
 use App\Http\Controllers\ViewEmpController; // Ensure correct casing as per your file name
 
@@ -165,14 +165,11 @@ Route::post('/admin/add-apprentice', [ApprenticeController::class, 'storeApprent
 Route::get('/admin/view-apprentice', [ApprenticeController::class, 'viewApprentice'])->name('adminsection.view-apprentice');
 
 
-Route::get('/admin/add-employer', [EmployerController::class, 'createEmployer'])->name('adminsection.add-employer');
 
-Route::post('/admin/add-employer', [EmployerController::class, 'storeEmployer'])->name('adminsection.store-employer');
+Route::post('/admin/store-employer', [EmployerController::class, 'store'])->name('adminsection.store-employer');
 
 
-Route::get('/admin/add-trainer', [trainerController::class, 'createTrainer'])->name('adminsection.add-trainer');
-
-Route::post('/admin/add-trainer', [trainerController::class, 'storeTrainer'])->name('adminsection.store-trainer');
+Route::post('/admin/store-trainer', [TrainerController::class, 'store'])->name('adminsection.store-trainer');
 
 
 
@@ -182,7 +179,7 @@ Route::get('/apprenticeship/{id}', [ViewApprenticeshipController::class, 'show']
     ->name('apprenticeship.show');
 
 
-    Route::get('/apprenticeship/{id}', [ApprenticeshipController::class, 'show'])->name('apprenticeship.show');
+Route::get('/apprenticeship/{id}', [ApprenticeshipController::class, 'show'])->name('apprenticeship.show');
 
 
 
