@@ -251,7 +251,7 @@ function addTaskRow(groupButton) {
     <td><input type="text" name="tasks[task_name][]" required></td>
     <td><input type="text" name="tasks[description][]"></td>
     <td><input type="date" name="tasks[due_date][]"></td>
-    <td><button type="button" class="remove" onclick="removeTaskRow(this)">Remove Task</button></td>
+    <td><button type="button" class="remove-task" onclick="removeTaskRow(this)">Remove Task</button></td>
   `;
 }
 
