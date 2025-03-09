@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Mentors</title>
+    <title>View Trainers</title>
     @vite(['resources/css/admin.css']) 
     @vite(['resources/js/sidemenu.js']) 
 </head>
@@ -69,8 +69,13 @@
         </button>
         <ul class="sub-menu">
           <div>
+<<<<<<< HEAD
             <li><a href="{{ route('adminsection.add-trainer') }}">Add Trainer</a></li>
             <li><a href="{{ route('adminsection.view-trainer') }}">View Trainers</a></li>
+=======
+            <li class="active"><a href="{{ route('adminsection.view-mentor') }}">View Trainers</a></li>
+            <li><a href="{{ route('adminsection.add-mentor') }}">Add Mentor</a></li>
+>>>>>>> bff182545d6495de940fd278528d581bc255b4af
           </div>
         </ul>
       </li>
@@ -102,11 +107,11 @@
   <div class="main-content">
     <div class="content">
         <header>
-            <h1>View Mentors</h1>
+            <h1>View Trainers</h1>
         </header>
 
         <section class="recent">
-            <h2>Mentors</h2>
+            <h2>Trainers</h2>
             <table>
                 <tr>
                     <th>Name</th>

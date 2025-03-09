@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Mentor</title>
+    <title>Add Trainer</title>
     @vite(['resources/css/admin.css']) 
     @vite(['resources/js/sidemenu.js']) 
 </head>
@@ -69,8 +69,13 @@
         </button>
         <ul class="sub-menu">
           <div>
+<<<<<<< HEAD
             <li><a href="{{ route('adminsection.add-trainer') }}">Add Trainer</a></li>
             <li><a href="{{ route('adminsection.view-trainer') }}">View Trainers</a></li>
+=======
+            <li><a href="{{ route('adminsection.view-trainer') }}">View Trainers</a></li>
+            <li class="active"><a href="{{ route('adminsection.add-trainer') }}">Add Trainer</a></li>
+>>>>>>> bff182545d6495de940fd278528d581bc255b4af
           </div>
         </ul>
       </li>
@@ -102,40 +107,60 @@
   <div class="main-content">
     <div class="content">
         <header>
-            <h1>Add Mentor</h1>
+            <h1>Add Trainer</h1>
         </header>
-        <div class="container">
-    <h2>Add Mentor</h2>
-    <form action="{{ route('adminsection.store-mentor') }}" method="POST">
-    @csrf
-    <div>
-        <label for="first_name">First Name:</label>
-        <input type="text" id="first_name" name="first_name" required>
-    </div>
-    <div>
-        <label for="middle_name">Middle Name (Optional):</label>
-        <input type="text" id="middle_name" name="middle_name">
-    </div>
-    <div>
-        <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" name="last_name" required>
-    </div>
-    <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-    </div>
-    <div>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-    </div>
-    <div>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-    </div>
-    <button type="submit">Add Mentor</button>
-</form>
 
+        <div class="container">
+            <h2>Add Trainer</h2>
+
+            <!-- Success Banner -->
+            @if(session('success'))
+                <div id="success-banner" style="background-color: #4CAF50; color: white; padding: 10px; text-align: center; border-radius: 5px; margin-bottom: 15px;">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            <form action="{{ route('adminsection.store-trainer') }}" method="POST">
+                @csrf
+                <div>
+                    <label for="first_name">First Name:</label>
+                    <input type="text" id="first_name" name="first_name" required>
+                </div>
+                <div>
+                    <label for="middle_name">Middle Name (Optional):</label>
+                    <input type="text" id="middle_name" name="middle_name">
+                </div>
+                <div>
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" id="last_name" name="last_name" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Add Trainer</button>
+            </form>
+        </div>
+    </div>
 </div>
+
+<!-- JavaScript to auto-hide the success banner -->
+<script>
+    setTimeout(function() {
+        var successBanner = document.getElementById('success-banner');
+        if (successBanner) {
+            successBanner.style.display = 'none';
+        }
+    }, 3000); // Hide after 3 seconds
+</script>
       
 
 </body>

@@ -99,47 +99,64 @@
     <img src="../../public/images/LogoGta.png" alt="coding2go logo" class="logo">
   </nav>
 
-<div class="main-content">
+  <div class="main-content">
     <div class="content">
         <header>
             <h1>Add Employer</h1>
         </header>
 
-<div class="container">
-    <h2>Add Employer</h2>
-    <form action="{{ route('adminsection.store-employer') }}" method="POST">
-    @csrf
-    <div>
-        <label for="first_name">First Name:</label>
-        <input type="text" id="first_name" name="first_name" required>
-    </div>
-    <div>
-        <label for="middle_name">Middle Name (Optional):</label>
-        <input type="text" id="middle_name" name="middle_name">
-    </div>
-    <div>
-        <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" name="last_name" required>
-    </div>
-    <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-    </div>
-    <div>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-    </div>
-    <div>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-    </div>
-    <button type="submit">Add Employer</button>
-</form>
-</div>
-      
+        <div class="container">
+            <h2>Add Employer</h2>
 
+            <!-- Success Banner -->
+            @if(session('success'))
+                <div id="success-banner" style="background-color: #4CAF50; color: white; padding: 10px; text-align: center; border-radius: 5px; margin-bottom: 15px;">
+                    {{ session('success') }}
+                </div>
+            @endif
 
+            <form action="{{ route('adminsection.store-employer') }}" method="POST">
+                @csrf
+                <div>
+                    <label for="first_name">First Name:</label>
+                    <input type="text" id="first_name" name="first_name" required>
+                </div>
+                <div>
+                    <label for="middle_name">Middle Name (Optional):</label>
+                    <input type="text" id="middle_name" name="middle_name">
+                </div>
+                <div>
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" id="last_name" name="last_name" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Add Employer</button>
+            </form>
+        </div>
+    </div>
 </div>
+
+<!-- JavaScript to auto-hide the success banner -->
+<script>
+    setTimeout(function() {
+        var successBanner = document.getElementById('success-banner');
+        if (successBanner) {
+            successBanner.style.display = 'none';
+        }
+    }, 3000); // Hide after 3 seconds
+</script>
+
 
 </body>
 </html>
