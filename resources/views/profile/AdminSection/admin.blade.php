@@ -30,8 +30,8 @@
         </button>
         <ul class="sub-menu">
           <div>
-            <li><a href="{{ route('adminsection.view-apprenticeship') }}">View Apprenticeships</a></li>
             <li><a href="{{ route('adminsection.add-apprenticeship') }}">Add Apprenticeship</a></li>
+            <li><a href="{{ route('adminsection.view-apprenticeship') }}">View Apprenticeships</a></li>
           </div>
         </ul>
       </li>
@@ -43,8 +43,8 @@
         </button>
         <ul class="sub-menu">
           <div>
-            <li><a href="{{ route('adminsection.view-apprentice') }}">View Apprentices</a></li>
             <li><a href="{{ route('adminsection.add-apprentice') }}">Add Apprentice</a></li>
+            <li><a href="{{ route('adminsection.view-apprentice') }}">View Apprentices</a></li>
           </div>
         </ul>
       </li>
@@ -56,8 +56,8 @@
         </button>
         <ul class="sub-menu">
           <div>
-            <li><a href="{{ route('adminsection.view-employer') }}">View Employers</a></li>
             <li><a href="{{ route('adminsection.add-employer') }}">Add Employer</a></li>
+            <li><a href="{{ route('adminsection.view-employer') }}">View Employers</a></li>
           </div>
         </ul>
       </li>
@@ -69,8 +69,8 @@
         </button>
         <ul class="sub-menu">
           <div>
-            <li><a href="{{ route('adminsection.view-trainer') }}">View Trainers</a></li>
             <li><a href="{{ route('adminsection.add-trainer') }}">Add Trainer</a></li>
+            <li><a href="{{ route('adminsection.view-trainer') }}">View Trainers</a></li>
           </div>
         </ul>
       </li>
