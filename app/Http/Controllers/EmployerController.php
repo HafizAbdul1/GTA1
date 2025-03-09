@@ -1,54 +1,35 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers; // The namespace must come first
 
 use Illuminate\Http\Request;
-use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use App\Http\Controllers\Controller; // Now correctly placed after the namespace
 
 class EmployerController extends Controller
 {
-    // Show Employers List
-    public function viewEmployers()
+    public function store(Request $request)
     {
-        // Fetch all users with the role 'employer'
-        $employers = User::where('role', 'employer')->get();
-        
-        // Pass data to the view
-        return view('profile.AdminSection.view-employer', compact('employers'));
-    }
-
-    // Show Add Employer Form
-    public function createEmployer()
-    {
-        return view('profile.AdminSection.add-employer');
-    }
-
-    // Store Employer in Database
-    public function storeEmployer(Request $request)
-    {
-        // Validate the input data
         $request->validate([
             'first_name' => 'required|string|max:255',
             'middle_name' => 'nullable|string|max:255',
             'last_name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
             'username' => 'required|string|max:255|unique:users,username',
-            'password' => 'required|string|min:6',
+            'email' => 'required|email|max:255|unique:users,email',
+            'password' => 'required|string|min:8',
         ]);
 
-        // Create a new employer in the database
         User::create([
-            'first_name' => $request->first_name,
-            'middle_name' => $request->middle_name,
-            'last_name' => $request->last_name,
-            'email' => $request->email,
-            'username' => $request->username,
-            'password' => Hash::make($request->password),
-            'role' => 'employer', // Automatically set role to employer
+            'first_name' => $request->input('first_name'),
+            'middle_name' => $request->input('middle_name'),
+            'last_name' => $request->input('last_name'),
+            'username' => $request->input('username'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password')), // Hash the password
+            'role' => 'employer', // Default role
         ]);
 
-        // Redirect back to the employer list with success message
-        return redirect()->route('adminsection.view-employer')->with('success', 'Employer added successfully!');
+        return redirect()->back()->with('success', 'Employer added successfully.');
     }
 }

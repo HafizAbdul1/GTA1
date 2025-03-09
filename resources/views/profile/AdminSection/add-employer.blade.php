@@ -107,7 +107,9 @@
 
 <div class="container">
     <h2>Add Employer</h2>
+    
     <form action="{{ route('adminsection.store-employer') }}" method="POST">
+
     @csrf
     <div>
         <label for="first_name">First Name:</label>
