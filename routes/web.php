@@ -16,7 +16,8 @@ use App\Http\Controllers\ApprenticeController;
 use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\ViewApprenticeshipController;
-use App\Http\Controllers\ViewEmpController; // Ensure correct casing as per your file name
+use App\Http\Controllers\viewempController; // Ensure correct casing as per your file name
+use App\Http\Controllers\viewtrnController; // Ensure correct casing as per your file name
 
 // Guest Routes - Not authenticated yet
 Route::middleware('guest')->group(function () {
@@ -183,6 +184,22 @@ Route::get('/apprenticeship/{id}', [ApprenticeshipController::class, 'show'])->n
 
 
 
+// ============================================== View Employer Section =============================================
+Route::get('/adminsection/view-employer', [viewempController::class, 'index'])
+    ->name('adminsection.view-employer');
+
+Route::delete('/adminsection/delete-employer/{id}', [viewempController::class, 'destroy'])
+    ->name('adminsection.delete-employer');
+
+// ============================================== View Trainer Section =============================================
+
+Route::get('/adminsection/view-trainer', [viewtrnController::class, 'index'])
+    ->name('adminsection.view-trainer');
+
+Route::delete('/adminsection/delete-trainer/{id}', [viewtrnController::class, 'destroy'])
+    ->name('adminsection.delete-trainer');
+    
+
 // -------------------------------------------- trainers Section Routes (visible after login) -----------------------------------
 Route::get('/Trainersection/trainer', function () {
     return view('profile.TrainerSection.trainer'); 
@@ -190,8 +207,4 @@ Route::get('/Trainersection/trainer', function () {
 
 
 
-Route::get('/adminsection/view-employer', [ViewEmpController::class, 'index'])
-    ->name('adminsection.view-employer');
 
-Route::delete('/adminsection/delete-employer/{id}', [ViewEmpController::class, 'destroy'])
-    ->name('adminsection.delete-employer');

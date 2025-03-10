@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Trainers</title>
+    <title>View Employers</title>
     @vite(['resources/css/admin.css']) 
     @vite(['resources/js/sidemenu.js']) 
 </head>
@@ -69,13 +69,8 @@
         </button>
         <ul class="sub-menu">
           <div>
-<<<<<<< HEAD
             <li><a href="{{ route('adminsection.add-trainer') }}">Add Trainer</a></li>
             <li><a href="{{ route('adminsection.view-trainer') }}">View Trainers</a></li>
-=======
-            <li class="active"><a href="{{ route('adminsection.view-mentor') }}">View Trainers</a></li>
-            <li><a href="{{ route('adminsection.add-mentor') }}">Add Mentor</a></li>
->>>>>>> bff182545d6495de940fd278528d581bc255b4af
           </div>
         </ul>
       </li>
@@ -104,7 +99,7 @@
     <img src="../../public/images/LogoGta.png" alt="coding2go logo" class="logo">
   </nav>
 
-  <div class="main-content">
+<div class="main-content">
     <div class="content">
         <header>
             <h1>View Trainers</h1>
@@ -113,22 +108,34 @@
         <section class="recent">
             <h2>Trainers</h2>
             <table>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>action</th>
-                </tr>
-                <tr>
-                    <td>John Doe</td>
-                    <td>john@doe.com</td>
-                    <td>edit</td>
-                </tr>
-                <tr>
-                    <td>Jane Smith</td>
-                    <td>jane@smith.com</td>
-                    <td>edit</td>
-                </tr>
-            </table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($trainers as $trainer)
+        <tr>
+            <td>{{ $trainer->first_name }} {{ $trainer->middle_name ?? '' }} {{ $trainer->last_name }}</td>
+            <td>{{ $trainer->email }}</td>
+            <td>
+                <form action="{{ route('adminsection.delete-trainer', $trainer->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn-delete" onclick="return confirm('Are you sure you want to delete this trainer?')">
+                        Delete
+                    </button>
+                </form>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+
+
+           
         </section>
     </div>
 </div>
